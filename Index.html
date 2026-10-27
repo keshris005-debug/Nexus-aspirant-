@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#01140f">
+<meta name="color-scheme" content="dark light">
+<title>NEXUS ASPIRANT — V12 Ultimate Study Universe</title>
+<style>
+:root{--bg:#04110f;--panel:#0a211b;--panel2:#0d2a23;--cyan:#43e7f5;--green:#48efb0;--muted:#a8c0bb;--line:#1c554a;--red:#ff7787;--gold:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#10352b 0%,var(--bg) 52%);color:#f4fffc;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:#04110fee;backdrop-filter:blur(15px);border-bottom:1px solid #1c554a}.brand{display:flex;gap:10px;align-items:center}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--green));display:grid;place-items:center;color:#00211b;font-size:22px;box-shadow:0 0 22px #43e7f544}.brand h1{font-size:14px;margin:0;letter-spacing:1px}.brand small{color:var(--cyan);font-size:9px;letter-spacing:1.2px}.pill{border:1px solid #247567;color:var(--cyan);border-radius:99px;padding:6px 9px;font-size:10px;font-weight:800;white-space:nowrap}main{position:relative;z-index:1;max-width:760px;margin:auto;padding:16px 14px 100px}.view{display:none}.view.active{display:block}.card{background:linear-gradient(140deg,#0b2a22f2,#061914f7);border:1px solid #1d6556;border-radius:20px;padding:16px;margin-bottom:12px;box-shadow:0 12px 28px #0003}.hero{background:radial-gradient(circle at 90% 10%,#1a766a66,transparent 40%),linear-gradient(135deg,#0b3027,#061914)}h2,h3,p{margin-top:0}.muted{color:var(--muted)}.tiny{font-size:12px}.eyebrow{font-size:10px;color:var(--cyan);font-weight:900;letter-spacing:1.2px;text-transform:uppercase}.hero h2{font-size:24px;margin:12px 0 6px}.progress{height:8px;border-radius:99px;background:#24433b;overflow:hidden}.progress span{height:100%;display:block;background:linear-gradient(90deg,var(--cyan),var(--green));width:0;transition:width .3s}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.tile,.subject,.chapter,.action{border:1px solid #1d6556;border-radius:16px;background:#0b251e;color:white;padding:13px;text-align:left;transition:.18s}.tile:hover,.subject:hover,.chapter:hover,.action:hover{border-color:var(--cyan);transform:translateY(-1px)}.tile .emoji{font-size:24px;display:block;margin-bottom:6px}.tile b{font-size:12px}.subject{text-align:center;padding:14px 6px}.subject span{font-size:23px;display:block}.subject b{font-size:12px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.row.wrap{flex-wrap:wrap}.btn{border:0;border-radius:13px;padding:11px 14px;font-weight:800;background:linear-gradient(90deg,var(--cyan),var(--green));color:#022019}.btn.secondary{background:#153d32;color:#eafff9;border:1px solid #2b7162}.btn.danger{background:#54202a;color:#ffe9ed;border:1px solid #9a3a4b}.btn.small{padding:8px 10px;font-size:12px}.btn:disabled{opacity:.4;cursor:not-allowed}.input,select,textarea{width:100%;border:1px solid #276354;border-radius:12px;background:#041610;color:white;padding:11px;outline:none}.input:focus,select:focus,textarea:focus{border-color:var(--cyan)}.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}.chapter-list{display:grid;gap:8px}.chapter{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px}.chapter
+Small{color:var(--muted);display:block;margin-top:3px}.chapter .arrow{color:var(--cyan);font-size:20px}.badge{display:inline-block;border:1px solid #236759;border-radius:99px;padding:4px 8px;font-size:10px;color:var(--cyan);font-weight:800}.nav{overflow-x:auto;gap:3px;position:fixed;z-index:20;bottom:0;left:0;right:0;background:#04110ff2;backdrop-filter:blur(15px);border-top:1px solid #1c554a;display:flex;justify-content:space-around;padding:7px 2px calc(7px + env(safe-area-inset-bottom))}.nav button{flex:0 0 auto;background:none;border:0;color:#8da9a1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;font-weight:700;min-width:42px}.nav button span{font-size:19px}.nav button.active{color:var(--cyan)}.question{font-size:17px;line-height:1.5;margin:16px 0}.option{display:block;width:100%;text-align:left;padding:12px;border:1px solid #285b4e;border-radius:12px;background:#071a14;color:white;margin:8px 0}.option.selected{border-color:var(--cyan);background:#0b3932}.option.correct{border-color:var(--green);background:#0a3b2b}.option.wrong{border-color:var(--red);background:#421e25}.feedback{padding:11px;border-radius:12px;background:#081c15;border:1px solid #2b6b5b;font-size:13px;margin:12px 0}.formula{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#03100c;border:1px solid #245c4f;border-radius:12px;padding:14px;color:var(--cyan);font-size:16px;overflow-wrap:anywhere}.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:#061812;border:1px solid #1b5145;border-radius:14px;padding:12px}.stat strong{display:block;font-size:21px;color:var(--cyan)}.empty{text-align:center;padding:28px 10px;color:var(--muted)}.hidden{display:none!important}.footer-note{font-size:11px;color:#87a79e;line-height:1.5}.section-title{font-size:17px;margin-bottom:10px}.listline{border-bottom:1px solid #1c4037;padding:10px 0}.listline:last-child{border:0}@media(min-width:600px){main{padding:22px 20px 105px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero h2{font-size:29px}}@media(max-width:360px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}.brand h1{font-size:12px}.pill{font-size:9px}}
+
+/* V11 COSMIC LAB */
+#starfield{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.8}
+.cosmic-glow{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#164d67 0%,#071725 45%,#04110f 100%)}
+.cosmic-glow:after{content:"";position:absolute;inset:-60%;background:conic-gradient(from 0deg,transparent,#43e7f512,transparent,#48efb014,transparent);animation:nebulaSpin 28s linear infinite;pointer-events:none}
+@keyframes nebulaSpin{to{transform:rotate(360deg)}}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 8px #43e7f533}50%{box-shadow:0 0 25px #43e7f577}}
+@keyframes floatOrb{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.orb-card{animation:floatOrb 5s ease-in-out infinite}.orb-card:nth-child(2){animation-delay:.7s}.orb-card:nth-child(3){animation-delay:1.4s}
+.lab-canvas{display:block;width:100%;height:250px;background:radial-gradient(ellipse at center,#0b2d45,#020811);border:1px solid #245c75;border-radius:16px}
+.pyq-option{display:block;width:100%;text-align:left;padding:11px;margin:7px 0;background:#061a20;border:1px solid #245666;border-radius:12px;color:#efffff}
+.pyq-option:active{transform:scale(.99)}
+.pyq-option.right{border-color:#48efb0;background:#0b352b}.pyq-option.nope{border-color:#ff7787;background:#421e25}
+.pyq-card{background:linear-gradient(145deg,#0a202c,#071812);border:1px solid #285a69;border-radius:18px;padding:15px;margin:12px 0}
+.lab-controls{margin-top:12px;padding:12px;border:1px solid #245c75;border-radius:14px;background:#04121cdd}
+.lab-control-top{gap:8px}.lab-timeline{margin-top:12px;padding:12px;border-radius:12px;background:#071b27}
+.lab-range{display:block;width:100%;accent-color:#43e7f5;cursor:ew-resize;min-height:28px;touch-action:pan-y}
+.lab-control-bottom{justify-content:space-between;align-items:center;gap:8px;margin-top:5px}
+.lab-control-bottom select{background:#0b2532;color:#dffaff;border:1px solid #245c75;border-radius:9px;padding:7px}
+#scienceCanvas{touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none}
+@media(max-width:480px){.lab-control-top .btn{flex:1 1 42%;font-size:12px;padding:9px 7px}.lab-timeline{padding:9px}}
+
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+
+/* V12 ULTIMATE STUDY DESK */
+.study-hero{background:radial-gradient(circle at 90% 5%,#6b47ff33,transparent 38%),linear-gradient(135deg,#10243d,#071914)}
+.study-tabs{display:flex;gap:7px;overflow:auto;padding:3px 0 10px}.study-tabs button{white-space:nowrap}
+.note-block{border:1px solid #285b70;background:linear-gradient(145deg,#0a202c,#071812);border-radius:16px;padding:14px;margin:10px 0}
+.note-block h3{font-size:15px;margin-bottom:8px;color:#b6f8ff}.note-block li{margin:7px 0;line-height:1.45}.formula-row{display:flex;gap:8px;align-items:start;margin:8px 0}.formula-row .formula{flex:1}.source-link{display:inline-flex;align-items:center;gap:7px;text-decoration:none;border:1px solid #2b7162;border-radius:12px;padding:10px 12px;color:#dffefa;background:#10352b;font-weight:800;font-size:12px;margin:4px 4px 4px 0}.source-link:hover{border-color:#43e7f5}.small-note{font-size:11px;color:#a8c0bb;line-height:1.5}
+@media(max-width:420px){.statgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.stat{padding:9px}.stat strong{font-size:18px}}
+
+
+/* V14 MENU + ACCESSIBLE THEME SWITCH */
+.menu-trigger{border:1px solid #247567;background:#0b251e;color:#dffff9;border-radius:12px;padding:9px 11px;font-weight:800;display:flex;align-items:center;gap:7px}
+.menu-shade{position:fixed;inset:0;background:#0009;z-index:80;display:none;backdrop-filter:blur(3px)}.menu-shade.open{display:block}
+.menu-drawer{position:absolute;right:0;top:0;height:100%;height:100dvh;width:min(340px,88vw);overflow:auto;padding:18px;background:#061914;border-left:1px solid #276354;box-shadow:-18px 0 55px #0006}
+.menu-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:14px;border-bottom:1px solid #245c4f;margin-bottom:12px}.menu-links{display:grid;gap:7px}.menu-links button{width:100%;text-align:left;border:1px solid #1d6556;background:#0b251e;color:#eafff9;border-radius:12px;padding:12px;font-weight:700}.menu-links button span{display:inline-block;width:30px}.theme-switch{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid
+#247567;background:#0b251e;color:#eafff9;border-radius:14px;padding:12px;margin:14px 0}.theme-switch button{border:0;border-radius:99px;background:linear-gradient(90deg,var(--cyan),var(--green));color:#03221b;font-weight:900;padding:9px 12px;white-space:nowrap}
+body[data-theme="light"]{--bg:#f1f6fb;--panel:#fff;--panel2:#e8f1f8;--muted:#526579;--line:#c5d5e2;background:radial-gradient(ellipse at top,#d8f5f0 0%,#f1f6fb 56%);color:#172b3b}
+body[data-theme="light"] .top,body[data-theme="light"] .nav{background:#f8fcfdf2;border-color:#c7d9e4}
+body[data-theme="light"] .pill,body[data-theme="light"] .badge{color:#006e75;border-color:#9acdd0}
+body[data-theme="light"] .card{background:linear-gradient(140deg,#fffffffa,#edf6f8f7);border-color:#c9dce5;box-shadow:0 8px 22px #173c5510}
+body[data-theme="light"] .hero,body[data-theme="light"] .study-hero{background:radial-gradient(circle at 90% 5%,#63d6d033,transparent 40%),linear-gradient(135deg,#e5f8f5,#f7fbff)}
+body[data-theme="light"] .tile,body[data-theme="light"] .subject,body[data-theme="light"] .chapter,body[data-theme="light"] .action{background:#fff;color:#183247;border-color:#c8dce5}
+body[data-theme="light"] .btn.secondary{background:#e5eff5;color:#183247;border-color:#bfd2df}
+body[data-theme="light"] .input,body[data-theme="light"] select,body[data-theme="light"] textarea{background:#fff;color:#173047;border-color:#bfd2df}
+body[data-theme="light"] .stat{background:#f7fbff;border-color:#cfdee8}
+body[data-theme="light"] .formula{background:#eaf5f7;color:#006c78;border-color:#c1dfe3}
+body[data-theme="light"] .option{background:#f7fbff;color:#173047;border-color:#c6d9e5}
+body[data-theme="light"] .feedback{background:#edf8f5;color:#183b3d;border-color:#b9ded4}
+body[data-theme="light"] .note-block,body[data-theme="light"] .pyq-card{background:linear-gradient(145deg,#fff,#edf6f8);border-color:#c7dce5}
+body[data-theme="light"] .note-block h3{color:#006d78}
+body[data-theme="light"] .source-link{background:#e4f4f1;color:#15514c;border-color:#b8dcd5}
+body[data-theme="light"] .nav button{color:#5a7181}body[data-theme="light"] .nav button.active{color:#007c87}
+body[data-theme="light"] .menu-drawer{background:#f6fbfe;border-color:#c7dce5;color:#183247}
+body[data-theme="light"] .menu-links button,body[data-theme="light"] .menu-trigger,body[data-theme="light"] .theme-switch{background:#fff;color:#183247;border-color:#c7dce5}
+body[data-theme="light"] .lab-controls,body[data-theme="light"] .lab-timeline{background:#eaf4f8;border-color:#c1d9e4}
+body[data-theme="light"] .lab-control-bottom select{background:#fff;color:#173047}
+@media(prefers-reduced-motion:reduce){.menu-drawer{scroll-behavior:auto}}
+
+/* V15 NEON STUDY EXPANSION */
+.flash-card{min-height:220px;margin:14px 0;padding:26px 18px;border:1px solid #43e7f5;border-radius:22px;background:radial-gradient(circle at 80% 10%,#1a766a66,transparent 40%),linear-gradient(145deg,#102e49,#071812);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;box-shadow:0 0 30px #43e7f51a;transition:transform .25s,border-color .25s}
+.flash-card:active{transform:scale(.985)}.flash-card h2{margin:18px 0;font-size:22px}.flash-card .formula{width:100%;font-size:20px}.focus-clock{font-size:clamp(54px,15vw,86px);font-weight:900;letter-spacing:2px;color:var(--cyan);text-shadow:0 0 28px #43e7f555;margin:25px 0 8px;font-variant-numeric:tabular-nums}
+body[data-theme="light"] .flash-card{background:linear-gradient(145deg,#e5f8f5,#f7fbff);color:#183247}
+@media(prefers-reduced-motion:reduce){.flash-card{transition:none}}
+
+</style>
+</head>
+<body>
+<canvas id="starfield" aria-hidden="true"></canvas>
+<header class="top">
+  <div class="brand"><div class="logo">🛰️</div><div><h1>NEXUS ASPIRANT</h1><small>V12 ULTIMATE STUDY UNIVERSE • JEE + NEET</small></div></div>
+  <div style="display:flex;align-items:center;gap:8px"><span class="pill">● OFFLINE READY</span><button class="menu-trigger" onclick="toggleMenu(true)" aria-label="Open menu" aria-expanded="false">☰ <span>Menu</span></button></div>
+</header>
+<div id="menuShade" class="menu-shade" onclick="if(event.target===this)toggleMenu(false)" aria-hidden="true">
+ <aside class="menu-drawer" role="dialog" aria-modal="true" aria-label="App menu">
+  <div class="menu-head"><div class="brand"><div class="logo">🛰️</div><div><h1>NEXUS ASPIRANT</h1><small>QUICK MENU</small></div></div><button class="btn secondary small" onclick="toggleMenu(false)" aria-label="Close menu">✕</button></div>
+  <div class="theme-switch"><div><b id="themeLabel">🌙 Dark mode</b><div class="tiny muted" id="themeHint">Easy on the eyes at night</div></div><button id="themeToggle" onclick="toggleTheme()">Switch to Light ☀️</button></div>
+  <div class="eyebrow" style="margin:16px 0 9px">Study navigation</div>
+  <div class="menu-links">
+   <button onclick="menuGo('home')"><span>🏠</span>Home dashboard</button>
+   <button onclick="menuGo('library')"><span>📖</span>Class 11–12 Chapters</button>
+   <button onclick="menuGo('tests')"><span>🎯</span>Mock tests</button>
+   <button onclick="menuGo('study')"><span>📒</span>Short notes & formulas</button>
+   <button onclick="menuGo('pyq')"><span>📝</span>JEE / NEET PYQ practice</button>
+   <button onclick="menuGo('lab')"><span>🌌</span>Interactive Science Lab</button>
+   <button onclick="menuGo('vault')"><span>📚</span>Formula Vault</button>
+   <button onclick="menuGo('progress')"><span>📈</span>My progress & backup</button>
+  </div>
+  <p class="footer-note" style="margin-top:18px">Theme preference is saved on this device. You can switch between light and dark mode anytime.</p>
+ </aside>
+</div>
+<main>
+  <section id="home" class="view active">
+    <div class="card hero">
+      <div class="row wrap"><span class="badge">🚀 YOUR STUDY UNIVERSE</span><span class="badge" id="streakBadge">🔥 1 Day Streak</span></div>
+      <h2>Mission: Crack JEE / NEET</h2><p class="muted tiny">Class 11 aur 12 ke chapters, PYQ practice, interactive science lab aur formula revision — sab ek jagah.</p>
+      <div class="row tiny"><b>Overall learning progress</b><b id="progressLabel">0%</b></div><div class="progress" style="margin:8px 0 14px"><span id="progressBar"></span></div>
+      <div class="statgrid"><div class="stat"><strong id="statTests">0</strong><small class="muted">Tests taken</small></div><div class="stat"><strong id="statBest">0%</strong><small class="muted">Best score</small></div><div class="stat"><strong id="statMastered">0</strong><small class="muted">Mastered formulas</small></div></div>
+    </div>
+    <h3 class="section-title">Choose your mission</h3>
+    <div class="grid">
+      <button class="tile" onclick="openLibrary('11','JEE')"><span class="emoji">⚛️</span><b>Class 11 · JEE</b><p class="muted tiny">Physics, Chemistry, Maths</p></button>
+  <button class="tile" onclick="openLibrary('12','JEE')"><span class="emoji">🚀</span><b>Class 12 · JEE</b><p class="muted tiny">Physics, Chemistry, Maths</p></button>
+      <button class="tile" onclick="openLibrary('11','NEET')"><span class="emoji">🧬</span><b>Class 11 · NEET</b><p class="muted tiny">Physics, Chemistry, Biology</p></button>
+      <button class="tile" onclick="openLibrary('12','NEET')"><span class="emoji">🩺</span><b>Class 12 · NEET</b><p class="muted tiny">Physics, Chemistry, Biology</p></button>
+    </div>
+    <h3 class="section-title" style="margin-top:18px">Quick access</h3>
+    <div class="grid">
+      <button class="tile" onclick="switchTab('study')"><span class="emoji">📒</span><b>Smart Study Desk</b><p class="muted tiny">Short notes · formulas · NCERT</p></button>
+      <button class="tile" onclick="switchTab('tests')"><span class="emoji">🎯</span><b>Test Arena</b><p class="muted tiny">Chapter tests & mock mode</p></button>
+      <button class="tile" onclick="switchTab('vault')"><span class="emoji">📚</span><b>Formula Vault</b><p class="muted tiny">Chapter-wise revision</p></button>
+      <button class="tile" onclick="switchTab('ai')"><span class="emoji">💡</span><b>Doubt Solver</b><p class="muted tiny">Explain and solve questions</p></button>
+      <button class="tile" onclick="switchTab('progress')"><span class="emoji">📈</span><b>My Progress</b><p class="muted tiny">History & saved progress</p></button>
+      <button class="tile orb-card" onclick="switchTab('pyq')"><span class="emoji">📝</span><b>JEE + NEET PYQ</b><p class="muted tiny">Exam-wise previous-paper concepts</p></button>
+      <button class="tile orb-card" onclick="switchTab('lab')"><span class="emoji">🌌</span><b>Cosmic Science Lab</b><p class="muted tiny">Orbit, waves, atom & circuits</p></button>
+    </div>
+
+    <h3 class="section-title" style="margin-top:18px">✨ Nexus Power Tools</h3>
+    <div class="grid">
+      <button class="tile" onclick="openDailyChallenge()"><span class="emoji">🎲</span><b>Daily Challenge</b><p class="muted tiny">Random question + explanation</p></button>
+      <button class="tile" onclick="switchTab('flashcards')"><span class="emoji">🃏</span><b>Formula Flashcards</b><p class="muted tiny">Flip, revise, remember</p></button>
+      <button class="tile" onclick="switchTab('focus')"><span class="emoji">⏳</span><b>Focus Timer</b><p class="muted tiny">Pomodoro study sessions</p></button>
+      <button class="tile" onclick="openUniversalSearch()"><span class="emoji">🔎</span><b>Smart Search</b><p class="muted tiny">Find chapters, formulas, topics</p></button>
+    </div>
+  </section>
+
+  <section id="library" class="view">
+    <div class="row"><div><div class="eyebrow">CHAPTER LIBRARY</div><h2 id="libraryTitle">Class 11 · JEE</h2></div><button class="btn secondary small" onclick="switchTab('home')">← Home</button></div>
+    <div class="filters"><select id="libClass" onchange="renderLibrary()"><option value="11">Class 11</option><option value="12">Class 12</option></select><select id="libExam" onchange="renderLibrary()"><option>JEE</option><option>NEET</option></select></div>
+    <div id="subjectGrid" class="grid4"></div>
+    <div class="card" style="margin-top:14px"><div class="row"><h3 id="chapterHeading" class="section-title" style="margin:0">Select a subject</h3><span id="chapterCount" class="badge">0 chapters</span></div><input id="chapterSearch" class="input" placeholder="🔎 Search chapter..." oninput="renderChapters()" style="margin:12px 0"><div id="chapterList" class="chapter-list"><div class="empty">Upar se subject choose karo.</div></div></div>
+  </section>
+
+  <section id="tests" class="view">
+    <div class="eyebrow">TEST ARENA</div><h2>Chapter Tests & Mock Exams</h2>
+    <div class="card"><p class="muted tiny">Chapter choose karke practice test shuru karo. Correct +4, incorrect −1, unattempted 0. Built-in practice questions sample hain; apne verified question bank se expand kar sakte ho.</p>
+      <div class="filters"><select id="testClass"><option value="11">Class 11</option><option value="12">Class 12</option></select><select id="testExam"><option>JEE</option><option>NEET</option></select></div>
+      <select id="testSubject" onchange="populateTestChapters()" style="margin-bottom:8px"></select>
+      <select id="testChapter" style="margin-bottom:8px"></select>
+      <div class="filters"><select id="testLength"><option value="5">5 questions</option><option value="10">10 questions</option><option value="15">15 questions</option></select><select id="testDuration"><option value="10">10 minutes</option><option value="30">30 minutes</option><option value="60">60 minutes</option><option value="90">90 minutes</option></select></div>
+      <button class="btn" style="width:100%" onclick="startTest()">Start Chapter Test ⚡</button>
+    </div>
+    <div id="testArea"></div>
+  </section>
+
+  <section id="vault" class="view">
+    <div class="eyebrow">FORMULA VAULT</div><h2>Chapter-wise Revision</h2>
+    <div class="card"><div class="filters"><select id="vaultClass" onchange="renderVaultSubjects()"><option value="11">Class 11</option><option value="12">Class 12</option></select><select id="vaultExam" onchange="renderVaultSubjects()"><option>JEE</option><option>NEET</option></select></div><select id="vaultSubject" onchange="renderVaultChapters()" style="margin-bottom:8px"></select><select id="vaultChapter" onchange="renderVaultCards()" style="margin-bottom:8px"></select><input id="vaultSearch" class="input" placeholder="Search chapter / formula..." oninput="renderVaultCards()"></div>
+    <div id="vaultCards"></div>
+  </section> <section id="study" class="view">
+    <div class="eyebrow">YOUR PERSONAL REVISION HUB</div><h2>Smart Study Desk</h2>
+    <div class="card study-hero"><span class="badge">📚 NOTES + FORMULAS + NCERT</span><h3 style="margin:12px 0 6px">Ek chapter. Saari revision.</h3><p class="muted tiny">Chapter select karo, short revision points dekho, formulas revise karo, apne notes save karo aur official NCERT textbook portal khol lo.</p>
+      <div class="filters"><select id="studyClass" onchange="updateStudySelectors()"><option value="11">Class 11</option><option value="12">Class 12</option></select><select id="studyExam" onchange="updateStudySelectors()"><option>JEE</option><option>NEET</option></select></div>
+      <select id="studySubject" onchange="updateStudyChapters()" style="margin-bottom:8px"></select><select id="studyChapter" onchange="renderStudyDesk()"></select>
+      <div class="row wrap" style="margin-top:12px"><button class="btn" onclick="markStudyDone()">✓ Mark studied</button><button class="btn secondary" onclick="copyStudySummary()">Copy revision text</button></div>
+    </div>
+    <div class="study-tabs"><button class="btn small" onclick="showStudyPanel('notes')">🧠 Short Notes</button><button class="btn secondary small" onclick="showStudyPanel('formulas')">⚡ Formula Sheet</button><button class="btn secondary small" onclick="showStudyPanel('practice')">🎯 Quick Practice</button><button class="btn secondary small" onclick="showStudyPanel('books')">📖 NCERT Books</button></div>
+    <div id="studyPanelNotes" class="card"><div id="studyNotes"></div><h3>My personal notes</h3><textarea id="personalStudyNote" rows="4" placeholder="Apne teacher ke points, tricky facts ya revision reminder yahan save karo..."></textarea><div class="row wrap" style="margin-top:8px"><button class="btn" onclick="savePersonalStudyNote()">Save my notes</button><span id="personalNoteStatus" class="tiny muted"></span></div></div>
+    <div id="studyPanelFormulas" class="card hidden"><div id="studyFormulas"></div></div>
+    <div id="studyPanelPractice" class="card hidden"><div id="studyPractice"></div></div>
+    <div id="studyPanelBooks" class="card hidden"><h3>Official textbook resources</h3><p class="muted tiny">NCERT PDFs ko official portal se open karo. Portal par class, subject aur book select karna ho sakta hai. Book PDFs ko app mein bundled nahi kiya gaya hai.</p><a class="source-link" href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener">📘 NCERT Textbook PDFs ↗</a><a class="source-link" href="https://epathshala.nic.in/" target="_blank" rel="noopener">📚 ePathshala ↗</a><a class="source-link" href="https://jeemain.nta.nic.in/" target="_blank" rel="noopener">📝 JEE Main official site ↗</a><a class="source-link" href="https://neet.nta.nic.in/" target="_blank" rel="noopener">🩺 NEET official site ↗</a><div class="feedback">Note: official websites ki availability internet par depend karti hai. Offline mode mein saved notes aur formulas available rahenge; PDF download ke liye internet chahiye.</div></div>
+    <p class="small-note">Content note: Short notes are revision aids, not a replacement for the complete NCERT textbook. Always verify syllabus and official exam notices for your exam year.</p>
+  </section>
+
+  <section id="ai" class="view">
+    <div class="eyebrow">NEXUS DOUBT DESK</div><h2>Study Doubt Solver</h2>
+    <div class="card"><p class="muted tiny">Question likho. Built-in helper common formulas aur concepts ke liye offline hints de sakta hai. Full AI-generated answers ke liye secure AI backend/API connect karna hoga.</p><textarea id="doubtInput" rows="4" placeholder="Apna JEE/NEET question yahan type karo..."></textarea><div class="filters"><select id="doubtSubject"><option>Physics</option><option>Chemistry</option><option>Maths</option><option>Biology</option></select><select id="doubtLevel"><option>Class 11</option><option>Class 12</option></select></div><button class="btn" onclick="solveDoubt()">Explain my doubt ✨</button><div id="doubtOutput" class="feedback hidden" style="margin-top:12px"></div></div>
+  </section>
+
+  <section id="pyq" class="view">
+    <div class="eyebrow">PREVIOUS-YEAR PRACTICE ARENA</div><h2>JEE + NEET PYQ Bank</h2>
+    <div class="card cosmic-glow"><span class="badge">📝 EXAM MODE</span><p class="tiny muted" style="margin-top:12px">Topic-wise practice questions based on recurring past-paper concepts. These are cleanly reworded practice prompts, not claimed as verbatim official papers or assigned to a specific year. Check official NTA papers/answer keys for exact wording.</p>
+      <div class="filters"><select id="pyqExam" onchange="renderPYQ()"><option>JEE</option><option>NEET</option></select><select id="pyqSubject" onchange="renderPYQ()"><option>All subjects</option><option>Physics</option><option>Chemistry</option><option>Maths</option><option>Biology</option></select></div>
+      <input id="pyqSearch" class="input" placeholder="🔎 Search topic or question..." oninput="renderPYQ()" />
+      <div class="row wrap" style="margin-top:10px"><span id="pyqCount" class="badge">0 questions</span><button class="btn secondary small" onclick="resetPYQ()">Reset filters</button></div>
+    </div><div id="pyqList"></div>
+  </section>
+
+  <section id="lab" class="view">
+    <div class="eyebrow">INTERACTIVE SCIENCE EXPERIENCE</div><h2>Cosmic Science Lab</h2>
+    <div class="card cosmic-glow"><span class="badge">🌌 LIVE CANVAS SIMULATIONS</span><p class="tiny muted" style="margin-top:10px">Pause, swipe/drag across the scene, or scrub the timeline to move backward and forward. Models are simplified visual demonstrations, not precision scientific simulations.</p>
+      <select id="labMode" onchange="drawLab()" style="margin:8px 0"><option value="orbit">Planetary orbit & gravity</option><option value="atom">Bohr-style atomic model</option><option value="wave">Wave propagation</option><option value="projectile">Projectile motion</option><option value="field">Electric field lines (dipole)</option><option value="circuit">Circuit & moving charges</option><option value="cell">Cell biology — moving organelles</option><option value="solar">Solar system scale model</option></select>
+      <canvas id="scienceCanvas" class="lab-canvas" width="760" height="340" aria-label="Interactive science animation. Drag horizontally to scrub time."></canvas>
+      <div class="lab-controls" aria-label="Animation timeline controls">
+        <div class="row wrap lab-control-top">
+          <button class="btn" onclick="toggleLab()" id="labToggle">⏸ Pause animation</button>
+          <button class="btn secondary" onclick="stepLab(-40)" aria-label="Move animation backward">⏪ −40</button>
+          <button class="btn secondary" onclick="stepLab(40)" aria-label="Move animation forward">+40 ⏩</button>
+          <button class="btn secondary" onclick="resetLabTimeline()">↺ Start</button>
+          <button class="btn secondary" onclick="refreshLabScene()">⟳ Refresh scene</button>
+        </div>
+        <div class="lab-timeline">
+          <div class="row wrap" style="justify-content:space-between;align-items:center"><label for="labTimeline"><b>Animation timeline</b></label><span class="badge" id="labTimeReadout">Frame 0 / 1200</span></div>
+          <input id="labTimeline" class="lab-range" type="range" min="0" max="1200" step="1" value="0" aria-label="Scrub animation timeline" oninput="scrubLab(this.value)" />
+          <div class="row wrap lab-control-bottom">
+            <span class="tiny muted">Drag slider or swipe left/right on the scene to move through time.</span>
+            <label class="tiny" for="labSpeed">Speed</label>
+            <select id="labSpeed" onchange="setLabSpeed(this.value)" aria-label="Animation playback speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select>
+          </div>
+        </div>
+      </div>
+      <div id="labCaption" class="feedback" style="margin-top:12px">Orbit: gravity provides centripetal acceleration for a bound orbit.</div>
+    </div>
+    <div class="grid"><div class="card orb-card"><span class="emoji">🪐</span><b>Gravity & Orbit</b><p class="muted tiny">Orbital motion, centripetal acceleration.</p></div><div class="card orb-card"><span class="emoji">〰️</span><b>Waves & Oscillation</b><p class="muted tiny">Amplitude, wavelength and propagation.</p></div><div class="card orb-card"><span class="emoji">⚛️</span><b>Atomic Structure</b><p class="muted tiny">Energy levels and electron transitions.</p></div><div class="card orb-card"><span class="emoji">🧬</span><b>Cell Explorer</b><p class="muted tiny">Cell membrane and organelles.</p></div></div>
+  </section>
+  <section id="flashcards" class="view">
+    <div class="eyebrow">ACTIVE RECALL MODE</div><h2>Formula Flashcards</h2>
+    <div class="card"><p class="muted tiny">Pehle formula ka naam yaad karo, phir card flip karke formula dekho. Subject aur chapter ke hisaab se cards milenge.</p>
+      <div class="filters"><select id="flashSubject" onchange="setupFlashcards()"><option>Physics</option><option>Maths</option><option>Chemistry</option><option>Biology</option></select><select id="flashChapter" onchange="renderFlashcard()"></select></div>
+      <div id="flashCard" class="flash-card" onclick="flipFlashcard()" role="button" tabindex="0" aria-label="Flip flashcard"><span class="badge" id="flashCount">CARD 1</span><h2 id="flashFront">Formula name</h2><p id="flashBack" class="formula hidden">Formula</p><p class="muted tiny">Tap card to flip</p></div>
+      <div class="row wrap"><button class="btn secondary" onclick="moveFlashcard(-1)">← Previous</button><button class="btn" onclick="flipFlashcard()">Flip card ↻</button><button class="btn secondary" onclick="moveFlashcard(1)">Next →</button><button class="btn secondary" onclick="markFlashcard()">⭐ Mark for revision</button></div>
+      <div id="flashStatus" class="feedback">Active recall helps you practise remembering without looking.</div>
+    </div>
+  </section>
+  <section id="focus" class="view">
+    <div class="eyebrow">DEEP WORK MODE</div><h2>Focus Timer</h2>
+    <div class="card hero cosmic-glow" style="text-align:center"><span class="badge">📵 ONE TASK AT A TIME</span><div id="focusClock" class="focus-clock">25:00</div><p id="focusStatus" class="muted">Ready for a focused study session.</p>
+      <div class="filters"><select id="focusMinutes" onchange="setFocusDuration()"><option value="15">15 min sprint</option><option value="25" selected>25 min Pomodoro</option><option value="45">45 min deep work</option><option value="50">50 min study block</option></select><select id="focusBreak"><option value="5" selected>5 min break</option><option value="10">10 min break</option></select></div>
+      <div class="row wrap" style="justify-content:center"><button class="btn" id="focusStart" onclick="toggleFocus()">▶ Start</button><button class="btn secondary" onclick="resetFocus()">↺ Reset</button><button class="btn secondary" onclick="startFocusBreak()">☕ Break</button></div>
+      <p class="footer-note" style="margin-top:14px">Timer isi page ke open rehne par chalega. Break ke dauran paani piyo aur aankhon ko aaram do.</p>
+    </div>
+  </section>
+  <section id="search" class="view">
+    <div class="eyebrow">UNIVERSAL FINDER</div><h2>Smart Search</h2>
+    <div class="card"><input id="globalSearchInput" class="input" placeholder="Search chapter, formula, concept..." oninput="runGlobalSearch()"><div id="globalSearchResults" class="chapter-list" style="margin-top:12px"><div class="empty">Type any topic to search.</div></div></div>
+  </section>
+  <section id="progress" class="view">
+    <div class="eyebrow">YOUR LEARNING DATA</div><h2>My Progress</h2><div class="card"><div class="statgrid"><div class="stat"><strong id="pTests">0</strong><small class="muted">Tests</small></div><div class="stat"><strong id="pAvg">0%</strong><small class="muted">Average</small></div><div class="stat"><strong id="pRev">0</strong><small class="muted">To revise</small></div></div><h3 style="margin-top:18px">Recent test results</h3><div id="historyList" class="tiny muted">Abhi koi test nahi diya.</div></div>
+    <div class="card"><h3>Formula revision status</h3><div id="revisionList" class="tiny muted">Koi formula mark nahi hua.</div></div>
+    <div class="card"><h3>Data backup</h3><p class="muted tiny">Progress isi browser/device par save hota hai. Backup export karke rakh sakte ho.</p><div class="row wrap"><button class="btn secondary" onclick="exportData()">Export backup</button><label class="btn secondary" for="importFile">Import backup</label><input id="importFile" type="file" accept="application/json" class="hidden" onchange="importData(event)"><button class="btn danger" onclick="resetData()">Reset progress</button></div></div>
+  </section>
+</main>
+<nav class="nav">
+  <button data-tab="home" class="active" onclick="switchTab('home')"><span>🏠</span>Home</button>
+  <button data-tab="library" onclick="switchTab('library')"><span>📖</span>Chapters</button>
+  <button data-tab="tests" onclick="switchTab('tests')"><span>🎯</span>Tests</button>
+  <button data-tab="study" onclick="switchTab('study')"><span>📒</span>Study</button>
+  <button data-tab="pyq" onclick="switchTab('pyq')"><span>📝</span>PYQ</button>
+  <button data-tab="lab" onclick="switchTab('lab')"><span>🌌</span>Lab</button>
+  <button data-tab="vault" onclick="switchTab('vault')"><span>📚</span>Vault</button>
+  <button data-tab="flashcards" onclick="switchTab('flashcards')"><span>🃏</span>Cards</button>
+  <button data-tab="progress" onclick="switchTab('progress')"><span>📈</span>Progress</button>
+</nav>
+<script>
+const chapters={
+"11":{
+JEE:{
+Physics:["Units and Measurements","Motion in a Straight Line","Motion in a Plane","Laws of Motion","Work, Energy, and Power","System of Particles and Rotational Motion","Gravitation","Mechanical Properties of Solids","Mechanical Properties of Fluids","Thermal Properties of Matter","Thermodynamics","Kinetic Theory of Gases","Oscillations","Waves"],
+Maths:["Sets","Relations and Functions","Trigonometric Functions","Principle of Mathematical Induction","Complex Numbers and Quadratic Equations","Linear Inequalities","Permutations and Combinations","Binomial Theorem","Sequences and Series","Straight Lines","Conic Sections","Introduction to Three-Dimensional Geometry","Limits and Derivatives","Mathematical Reasoning","Statistics","Probability"],
+Chemistry:["Some Basic Concepts of Chemistry","Structure of Atom","Chemical Thermodynamics","Chemical Equilibrium","Ionic Equilibrium","Redox Reactions","Classification of Elements and Periodicity in Properties","Chemical Bonding and Molecular Structure","p-Block Elements (Group 13 and 14)","Some Basic Principles and Techniques (GOC)","Hydrocarbons"]
+},
+NEET:{
+Physics:["Units and Measurements","Motion in a Straight Line","Motion in a Plane","Laws of Motion","Work, Energy, and Power","System of Particles and Rotational Motion","Gravitation","Mechanical Properties of Solids","Mechanical Properties of Fluids","Thermal Properties of Matter","Thermodynamics","Kinetic Theory of Gases","Oscillations","Waves"],
+Chemistry:["Some Basic Concepts of Chemistry","Structure of Atom","Chemical Thermodynamics","Chemical Equilibrium","Ionic Equilibrium","Redox Reactions","Classification of Elements and Periodicity in Properties","Chemical Bonding and Molecular Structure","p-Block Elements (Group 13 and 14)","Some Basic Principles and Techniques (GOC)","Hydrocarbons"],
+Biology:["The Living World","Biological Classification","Plant Kingdom","Animal Kingdom","Morphology of Flowering Plants","Anatomy of Flowering Plants","Structural Organisation in Animals (Animal Tissues and Frog)","Cell: The Unit of Life","Biomolecules","Cell Cycle and Cell Division","Photosynthesis in Higher Plants","Respiration in Plants","Plant Growth and Development","Breathing and Exchange of Gases","Body Fluids and Circulation","Excretory Products and their Elimination","Locomotion and Movement","Neural Control and Coordination","Chemical Coordination and Integration"]
+}},
+"12":{
+JEE:{ Physics:["Electric Charges and Fields","Electrostatic Potential and Capacitance","Current Electricity","Moving Charges and Magnetism","Magnetism and Matter","Electromagnetic Induction","Alternating Current","Electromagnetic Waves","Ray Optics and Optical Instruments","Wave Optics","Dual Nature of Radiation and Matter","Atoms","Nuclei","Semiconductor Electronics: Materials, Devices and Simple Circuits"],
+Maths:["Relations and Functions","Inverse Trigonometric Functions","Matrices","Determinants","Continuity and Differentiability","Applications of Derivatives","Integrals (Definite and Indefinite)","Applications of Integrals (Area under curves)","Differential Equations","Vector Algebra","Three-Dimensional Geometry","Linear Programming","Probability"],
+Chemistry:["Solutions","Electrochemistry","Chemical Kinetics","Haloalkanes and Haloarenes","Alcohols, Phenols and Ethers","Aldehydes, Ketones and Carboxylic Acids","Amines (Organic Compounds Containing Nitrogen)","Biomolecules","Polymers","p-Block Elements (Groups 15 to 18)","d- and f-Block Elements (Transition Elements)","Coordination Compounds"]
+},
+NEET:{
+Physics:["Electric Charges and Fields","Electrostatic Potential and Capacitance","Current Electricity","Moving Charges and Magnetism","Magnetism and Matter","Electromagnetic Induction","Alternating Current","Electromagnetic Waves","Ray Optics and Optical Instruments","Wave Optics","Dual Nature of Radiation and Matter","Atoms","Nuclei","Semiconductor Electronics: Materials, Devices and Simple Circuits"],
+Chemistry:["Solutions","Electrochemistry","Chemical Kinetics","Haloalkanes and Haloarenes","Alcohols, Phenols and Ethers","Aldehydes, Ketones and Carboxylic Acids","Amines (Organic Compounds Containing Nitrogen)","Biomolecules","Polymers","p-Block Elements (Groups 15 to 18)","d- and f-Block Elements (Transition Elements)","Coordination Compounds"],
+Biology:["Sexual Reproduction in Flowering Plants","Human Reproduction","Reproductive Health","Principles of Inheritance and Variation","Molecular Basis of Inheritance","Evolution","Human Health and Disease","Microbes in Human Welfare","Biotechnology: Principles and Processes","Biotechnology and its Applications","Organisms and Populations","Ecosystem","Biodiversity and Conservation"]
+}}
+};
+const emoji={Physics:"⚡",Chemistry:"🧪",Maths:"📐",Biology:"🧬"};
+const formulaData={
+"Units and Measurements":[["Dimensional formula of velocity","[LT⁻¹]"],["Dimensional formula of force","[MLT⁻²]"],["Percentage error (product/quotient)","Approx. percentage errors add"]],
+"Motion in a Straight Line":[["Uniform velocity","v = Δx / Δt"],["Acceleration","a = (v − u) / t"],["Equation of motion","v = u + at"],["Displacement","s = ut + ½at²"],["Velocity-displacement relation","v² = u² + 2as"]],
+"Motion in a Plane":[["Vector components","Aₓ = A cos θ, Aᵧ = A sin θ"],["Projectile time of flight (same level)","T = 2u sin θ / g"],["Projectile maximum height","H = u² sin² θ / 2g"],["Projectile range (same level)","R = u² sin 2θ / g"]],
+"Laws of Motion":[["Newton's second law","F = ma"],["Momentum","p = mv"],["Impulse","J = Δp = FΔt"],["Friction (limiting)","fₘₐₓ = μₛN"]],
+"Work, Energy, and Power":[["Work by constant force","W = Fs cos θ"],["Kinetic energy","K = ½mv²"],["Power","P = W/t"],["Spring potential energy","U = ½kx²"]],
+"Gravitation":[["Newton's gravitation law","F = GMm/r²"],["Orbital speed (circular orbit)","v = √(GM/r)"],["Escape speed (near surface)","vₑ = √(2GM/R)"],["Acceleration due to gravity","g = GM/R²"]],
+"Oscillations":[["Simple harmonic motion","a = −ω²x"],["Time period of spring-mass system","T = 2π√(m/k)"],["Simple pendulum (small angle)","T = 2π√(l/g)"]],
+"Waves":[["Wave speed","v = fλ"],["Frequency and period","f = 1/T"]],
+"Thermodynamics":[["First law (physics convention)","Q = ΔU + W"],["Ideal gas equation","PV = nRT"]],
+"Structure of Atom":[["Photon energy","E = hν = hc/λ"],["de Broglie wavelength","λ = h/p"]],
+"Some Basic Concepts of Chemistry":[["Number of moles","n = given mass / molar mass"],["Molarity","M = moles of solute / volume of solution (L)"]],
+"Chemical Equilibrium":[["Equilibrium constant (generic)","Kc = product concentrations / reactant concentrations, each raised to stoichiometric powers"]],
+"Ionic Equilibrium":[["pH","pH = −log₁₀[H⁺]"]],
+"Chemical Thermodynamics":[["Gibbs energy","ΔG = ΔH − TΔS"]],
+"Solutions":[["Molarity","M = moles of solute / volume of solution (L)"],["Raoult's law (ideal solution)","pᵢ = xᵢpᵢ°"]],
+"Electrochemistry":[["Cell potential","E°cell = E°cathode − E°anode"],["Charge passed","Q = It"]],
+"Chemical Kinetics":[["First-order integrated rate law","ln([A]₀/[A]t) = kt"],["First-order half-life","t½ = 0.693/k"]],
+"Chemical Bonding and Molecular Structure":[["Formal charge","FC = valence e⁻ − nonbonding e⁻ − ½(bonding e⁻)"]],
+"Complex Numbers and Quadratic Equations":[["Modulus of complex number","|a + ib| = √(a² + b²)"],["Discriminant","D = b² − 4ac"]],
+"Trigonometric Functions":[["Pythagorean identity","sin²θ + cos²θ = 1"],["Tangent identity","1 + tan²θ = sec²θ"]],
+"Sequences and Series":[["Arithmetic progression nth term","aₙ = a + (n−1)d"],["AP sum","Sₙ = n/2 [2a + (n−1)d]"],["Geometric progression nth term","aₙ = arⁿ⁻¹"]],
+"Straight Lines":[["Slope","m = (y₂−y₁)/(x₂−x₁)"],["Point-slope form","y − y₁ = m(x − x₁)"]],
+"Limits and Derivatives":[["Power rule","d(xⁿ)/dx = nxⁿ⁻¹"],["Derivative of sin x","d(sin x)/dx = cos x"]],
+"Integrals (Definite and Indefinite)":[["Power rule for integration","∫xⁿ dx = xⁿ⁺¹/(n+1) + C, n ≠ −1"],["Definite integral","∫ₐᵇ f(x)dx = F(b) − F(a)"]],
+"Determinants":[["2×2 determinant","|a b; c d| = ad − bc"]],
+"Probability":[["Probability of an event","P(A) = favourable outcomes / total equally likely outcomes"],["Complement","P(A′) = 1 − P(A)"]],
+"Electric Charges and Fields":[["Coulomb's law magnitude","F = k|q₁q₂|/r²"],["Electric field","E = F/q"]],
+"Electrostatic Potential and Capacitance":[["Potential of point charge","V = kQ/r"],["Capacitance","C = Q/V"],["Parallel-plate capacitor (air/vacuum)","C = ε₀A/d"]],
+"Current Electricity":[["Ohm's law","V = IR"],["Electric power","P = VI = I²R = V²/R"]],
+"Moving Charges and Magnetism":[["Magnetic force on moving charge","F = qvB sin θ"],["Force on current-carrying wire","F = BIL sin θ"]],
+"Electromagnetic Induction":[["Faraday's law","ε = −dΦB/dt"]],
+"Alternating Current":[["RMS voltage (sinusoidal)","Vᵣₘₛ = V₀/√2"]],
+"Ray Optics and Optical Instruments":[["Thin lens formula (Cartesian convention)","1/f = 1/v − 1/u"],["Magnification (lens)","m = v/u"]],
+"Dual Nature of Radiation and Matter":[["Photon energy","E = hν"],["de Broglie wavelength","λ = h/p"]],
+"Atoms":[["Bohr energy (hydrogen)","Eₙ = −13.6/n² eV"]],
+"Nuclei":[["Mass-energy equivalence","E = mc²"],["Radioactive decay law","N = N₀e⁻λᵗ"]],
+"Cell: The Unit of Life":[["Plasma membrane","Selectively permeable boundary of the cell"]],
+"Biomolecules":[["Protein building blocks","Amino acids"]],
+"Photosynthesis in Higher Plants":[["Overall simplified photosynthesis equation","6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (light, chlorophyll)"]],
+"Breathing and Exchange of Gases":[["Oxygen transport","Most oxygen is transported bound to haemoglobin"]],
+"Human Reproduction":[["Fertilisation in humans","Usually occurs in the ampullary-isthmic region of the oviduct"]],
+"Principles of Inheritance and Variation":[["Mendel's monohybrid F₂ phenotypic ratio","3:1 (complete dominance)"]],
+"Molecular Basis of Inheritance":[["DNA base pairing","A–T and G–C"]],
+"Evolution":[["Hardy–Weinberg equilibrium","p² + 2pq + q² = 1"]],
+"Ecosystem":[["Energy transfer","Only a fraction of energy passes to the next trophic level; the 10% rule is a useful approximation"]],
+"Biotechnology: Principles and Processes":[["PCR","Amplifies a selected DNA sequence"]]
+};
+const qBank={
+Physics:[ {q:"A body moves with constant velocity. Its acceleration is:",o:["Zero","Constant but non-zero","Increasing","Cannot be defined"],a:0,e:"Acceleration is the rate of change of velocity. Constant velocity means zero change."},
+{q:"The SI unit of force is:",o:["Joule","Newton","Watt","Pascal"],a:1,e:"Force is measured in newtons (N), equivalent to kg·m·s⁻²."},
+{q:"For a body in uniform circular motion, acceleration points:",o:["Along tangent","Away from centre","Towards centre","Always upward"],a:2,e:"Centripetal acceleration is directed towards the centre."},
+{q:"Work done by a force perpendicular to displacement is:",o:["Maximum","Zero","Negative always","Equal to force"],a:1,e:"W = Fs cos θ; at 90°, cos θ = 0."},
+{q:"The dimensional formula of energy is:",o:["[MLT⁻²]","[ML²T⁻²]","[M⁰LT⁻¹]","[ML⁻¹T⁻²]"],a:1,e:"Energy = work = force × displacement."},
+{q:"For a circular orbit of radius r around mass M, orbital speed is:",o:["√(GMr)","GM/r","√(GM/r)","GM/r²"],a:2,e:"Equate gravitational force and centripetal force."},
+{q:"In SHM, acceleration is:",o:["ωx","−ω²x","constant","zero at every point"],a:1,e:"Acceleration is proportional to displacement and opposite in direction."},
+{q:"Ohm's law for an ohmic conductor at constant temperature is:",o:["V = IR","P = I/R","V = I + R","R = VI"],a:0,e:"Potential difference is proportional to current: V = IR."}
+],
+Maths:[
+{q:"If A = {1,2} and B = {2,3}, then A ∩ B is:",o:["{1,2,3}","{1}","{2}","∅"],a:2,e:"Intersection contains elements common to both sets."},
+{q:"sin²θ + cos²θ equals:",o:["0","1","tan θ","2"],a:1,e:"This is the fundamental Pythagorean identity."},
+{q:"The discriminant of ax² + bx + c = 0 is:",o:["b² − 4ac","a² − 4bc","b − 4ac","4ac − b"],a:0,e:"D = b² − 4ac determines the nature of the roots."},
+{q:"The derivative of x² with respect to x is:",o:["x","2x","2","x³/3"],a:1,e:"By the power rule, d(xⁿ)/dx = nxⁿ⁻¹."},
+{q:"The sum of the first n natural numbers is:",o:["n²","n(n−1)/2","n(n+1)/2","2n+1"],a:2,e:"The formula is n(n+1)/2."},
+{q:"For any event A, P(A) lies between:",o:["−1 and 1","0 and 1","0 and 100 only","−∞ and ∞"],a:1,e:"Probability is between 0 and 1 inclusive."}
+],
+Chemistry:[
+{q:"One mole contains approximately:",o:["6.022 × 10²³ entities","3.14 × 10⁸ entities","9.8 entities","1.6 × 10⁻¹⁹ entities"],a:0,e:"Avogadro constant is approximately 6.022 × 10²³ mol⁻¹."},
+{q:"The pH of a neutral aqueous solution at 25°C is approximately:",o:["1","5","7","14"],a:2,e:"At 25°C, neutral water has [H⁺] = 10⁻⁷ mol L⁻¹."},
+{q:"Oxidation is defined as:",o:["Gain of electrons","Loss of electrons","Gain of neutrons","Loss of protons only"],a:1,e:"Oxidation is loss of electrons; reduction is gain of electrons."},
+{q:"The SI unit of amount of substance is:",o:["Gram","Mole","Litre","Molarity"],a:1,e:"The SI base unit is mole (mol)."},
+{q:"A catalyst generally changes the reaction rate by:",o:["Changing equilibrium constant","Lowering activation energy pathway","Changing ΔG°","Increasing product mass"],a:1,e:"A catalyst provides an alternative pathway with lower activation energy."},
+{q:"The bond formed by sharing electron pairs is:",o:["Ionic","Covalent","Metallic only","Hydrogen bond"],a:1,e:"Covalent bonding involves sharing electron pairs."}
+],
+Biology:[
+{q:"The basic structural and functional unit of life is:",o:["Tissue","Organ","Cell","Organ system"],a:2,e:"The cell is the basic unit of living organisms."},
+{q:"The site of aerobic respiration in eukaryotic cells is primarily:",o:["Ribosome","Mitochondrion","Golgi body","Lysosome"],a:1,e:"Mitochondria contain the machinery for aerobic respiration."},
+{q:"DNA base pairing is:",o:["A–G and C–T","A–T and G–C","A–C and G–T","A–U and G–C in DNA"],a:1,e:"In DNA, adenine pairs with thymine and guanine with cytosine."},
+{q:"The pigment directly involved in photosynthesis is mainly:",o:["Haemoglobin","Chlorophyll a","Melanin","Keratin"],a:1,e:"Chlorophyll a is the primary photosynthetic pigment."},
+{q:"Mendel's law of segregation describes separation of:",o:["Organs","Alleles during gamete formation","Species","Cell walls"],a:1,e:"Allele pairs segregate during gamete formation."},
+{q:"The usual site of fertilisation in humans is the:",o:["Uterus","Cervix","Ampullary-isthmic region of oviduct","Vagina"],a:2,e:"Human fertilisation usually occurs in the ampullary-isthmic junction."}
+]};
+let state=loadState(),currentSubject="Physics",currentTest=null,timerId=null,remaining=0,selectedAnswer=null,questionIndex=0;
+function loadState(){try{return JSON.parse(localStorage.getItem("nexusV10State"))||{history:[],mastered:[],revision:[],completed:[],streak:1,lastDate:"",best:0}}catch(e){return {history:[],mastered:[],revision:[],completed:[],streak:1,lastDate:"",best:0}}}
+function saveState(){localStorage.setItem("nexusV10State",JSON.stringify(state));updateStats()}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function switchTab(tab){document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id===tab));document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));if(tab==="library")renderLibrary();if(tab==="tests")setupTestSelectors();if(tab==="vault"){renderVaultSubjects();renderVaultCards()}if(tab==="progress")renderProgress();window.scrollTo({top:0,behavior:"smooth"})}
+function openLibrary(cls,exam){document.getElementById("libClass").value=cls;document.getElementById("libExam").value=exam;switchTab("library");renderLibrary()}
+function getSubjects(cls,exam){return chapters[cls]?.[exam]||{}}
+function renderLibrary(){const cls=document.getElementById("libClass").value,exam=document.getElementById("libExam").value,subjects=getSubjects(cls,exam);document.getElementById("libraryTitle").textContent=`Class ${cls} · ${exam}`;const grid=document.getElementById("subjectGrid");grid.innerHTML=Object.keys(subjects).map(s=>`<button class="subject" onclick="chooseSubject('${s}')"><span>${emoji[s]}</span><b>${s}</b><small class="muted" style="display:block;margin-top:4px">${subjects[s].length} chapters</small></button>`).join("");const first=Object.keys(subjects)[0];if(!subjects[currentSubject])currentSubject=first||"Physics";if(first){chooseSubject(subjects[currentSubject]?currentSubject:first)}}
+function chooseSubject(s){currentSubject=s;document.getElementById("chapterHeading").textContent=`${emoji[s]} ${s} Chapters`;renderChapters()}
+function renderChapters(){const cls=document.getElementById("libClass").value,exam=document.getElementById("libExam").value,arr=getSubjects(cls,exam)[currentSubject]||[],q=(document.getElementById("chapterSearch").value||"").toLowerCase();const list=arr.filter(c=>c.toLowerCase().includes(q));document.getElementById("chapterCount").textContent=`${list.length} chapters`;document.getElementById("chapterList").innerHTML=list.map(c=>`<button class="chapter" onclick="chapterActions('${cls}','${exam}','${currentSubject}',${JSON.stringify(c).replace(/"/g,'&quot;')})"><span><b>${esc(c)}</b><small>${state.completed.includes(`${cls}|${exam}|${currentSubject}|${c}`)?"✓ Test completed":"Open notes, test & formulas"}</small></span><span class="arrow">›</span></button>`).join("")||'<div class="empty">No matching chapter.</div>'}
+function chapterActions(cls,exam,subject,chapter){const safe=String(chapter);const choice=prompt(`${safe}\n\n1 = Start chapter test\n2 = Open formula vault\n3 = Mark chapter studied\n\nOption number enter karo:`);if(choice==="1"){switchTab("tests");document.getElementById("testClass").value=cls;document.getElementById("testExam").value=exam;setupTestSelectors();document.getElementById("testSubject").value=subject;populateTestChapters();document.getElementById("testChapter").value=safe;startTest()}else if(choice==="2"){switchTab("vault");document.getElementById("vaultClass").value=cls;document.getElementById("vaultExam").value=exam;renderVaultSubjects();document.getElementById("vaultSubject").value=subject;renderVaultChapters();document.getElementById("vaultChapter").value=safe;renderVaultCards()}else if(choice==="3"){const k=`${cls}|${exam}|${subject}|${safe}`;if(!state.completed.includes(k))state.completed.push(k);saveState();renderLibrary();alert("Chapter marked as studied!")}
+}
+function setupTestSelectors(){const cls=document.getElementById("testClass").value,exam=document.getElementById("testExam").value,sel=document.getElementById("testSubject"),prev=sel.value;const subs=Object.keys(getSubjects(cls,exam));sel.innerHTML=subs.map(s=>`<option>${s}</option>`).join("");if(subs.includes(prev))sel.value=prev;populateTestChapters()}
+function populateTestChapters(){const cls=document.getElementById("testClass").value,exam=document.getElementById("testExam").value,sub=document.getElementById("testSubject").value;document.getElementById("testChapter").innerHTML=(getSubjects(cls,exam)[sub]||[]).map(c=>`<option>${esc(c)}</option>`).join("")}
+document.getElementById("testClass").addEventListener("change",setupTestSelectors);document.getElementById("testExam").addEventListener("change",setupTestSelectors);
+function makeQuestions(subject,chapter,count){let base=qBank[subject]||qBank.Physics;let chosen=[];const key=(chapter+subject).length%base.length;for(let i=0;i<Math.min(count,base.length);i++)chosen.push({...base[(key+i)%base.length]});return chosen}
+function startTest(){clearInterval(timerId);const cls=document.getElementById("testClass").value,exam=document.getElementById("testExam").value,subject=document.getElementById("testSubject").value,chapter=document.getElementById("testChapter").value,count=+document.getElementById("testLength").value;currentTest={cls,exam,subject,chapter,questions:makeQuestions(subject,chapter,count),answers:{},started:Date.now(),duration:+document.getElementById("testDuration").value*60};questionIndex=0;remaining=currentTest.duration;renderQuestion();timerId=setInterval(()=>{remaining--;const t=document.getElementById("timer");if(t)t.textContent=formatTime(remaining);if(remaining<=0)finishTest(true)},1000);document.getElementById("testArea").scrollIntoView({behavior:"smooth"})}
+function formatTime(s){s=Math.max(0,s);return `${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`}
+function renderQuestion(){if(!currentTest)return;const q=currentTest.questions[questionIndex],ans=currentTest.answers[questionIndex];document.getElementById("testArea").innerHTML=`<div class="card"><div class="row wrap"><span class="badge">${esc(currentTest.exam)} · Class ${currentTest.cls}</span><span class="badge">Question ${questionIndex+1}/${currentTest.questions.length}</span><span id="timer" class="badge">⏱ ${formatTime(remaining)}</span></div><p class="muted tiny" style="margin-top:12px">${esc(currentTest.subject)} · ${esc(currentTest.chapter)}</p><div class="question">${esc(q.q)}</div><div>${q.o.map((o,i)=>`<button class="option ${ans===i?"selected":""}" onclick="chooseAnswer(${i})">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join("")}</div><div class="row" style="margin-top:16px"><button class="btn secondary" onclick="moveQuestion(-1)" ${questionIndex===0?"disabled":""}>← Previous</button><span class="muted tiny">${Object.keys(currentTest.answers).length} answered</span>${questionIndex===currentTest.questions.length-1?'<button class="btn" onclick="finishTest(false)">Submit test ✓</button>':'<button class="btn" onclick="moveQuestion(1)">Next →</button>'}</div></div>`}
+function chooseAnswer(i){currentTest.answers[questionIndex]=i;renderQuestion()}
+function moveQuestion(n){questionIndex=Math.max(0,Math.min(currentTest.questions.length-1,questionIndex+n));renderQuestion()}
+function finishTest(auto){if(!currentTest)return;clearInterval(timerId);timerId=null;let correct=0,wrong=0,unanswered=0;currentTest.questions.forEach((q,i)=>{if(currentTest.answers[i]===undefined)unanswered++;else if(currentTest.answers[i]===q.a)correct++;else wrong++});const score=correct*4-wrong;const max=currentTest.questions.length*4,pct=Math.max(0,Math.round(score/max*100));const record={date:new Date().toLocaleString(),cls:currentTest.cls,exam:currentTest.exam,subject:currentTest.subject,chapter:currentTest.chapter,correct,wrong,unanswered,score,max,pct};state.history.unshift(record);state.best=Math.max(state.best,pct);const key=`${currentTest.cls}|${currentTest.exam}|${currentTest.subject}|${currentTest.chapter}`;if(!state.completed.includes(key))state.completed.push(key);saveState();const review=currentTest.questions.map((q,i)=>`<div class="listline"><b>Q${i+1}. ${esc(q.q)}</b><p class="tiny" style="margin:5px 0;color:${currentTest.answers[i]===q.a?'var(--green)':'var(--red)'}">Correct answer: ${String.fromCharCode(65+q.a)}. ${esc(q.o[q.a])}</p><p class="muted tiny">${esc(q.e)}</p></div>`).join("");document.getElementById("testArea").innerHTML=`<div class="card"><div class="eyebrow">TEST RESULT ${auto?"· TIME UP":""}</div><h2>${score} / ${max} marks</h2><p class="muted">${esc(currentTest.chapter)}</p><div class="progress"><span style="width:${pct}%"></span></div><div class="statgrid" style="margin:14px 0"><div class="stat"><strong>${correct}</strong><small>Correct</small></div><div class="stat"><strong>${wrong}</strong><small>Wrong</small></div><div class="stat"><strong>${unanswered}</strong><small>Skipped</small></div></div><p>Accuracy score: <b>${pct}%</b> · Negative marking: −1 per wrong answer.</p><button class="btn" onclick="startTest()">Try again</button> <button class="btn secondary" onclick="switchTab('progress')">View progress</button><h3 style="margin-top:20px">Answer review</h3>${review}</div>`;currentTest=null}
+function renderVaultSubjects(){const cls=document.getElementById("vaultClass").value,exam=document.getElementById("vaultExam").value,subs=Object.keys(getSubjects(cls,exam)),sel=document.getElementById("vaultSubject"),prev=sel.value;sel.innerHTML=subs.map(s=>`<option>${s}</option>`).join("");if(subs.includes(prev))sel.value=prev;renderVaultChapters()}
+function renderVaultChapters(){const cls=document.getElementById("vaultClass").value,exam=document.getElementById("vaultExam").value,sub=document.getElementById("vaultSubject").value,sel=document.getElementById("vaultChapter"),prev=sel.value;sel.innerHTML=(getSubjects(cls,exam)[sub]||[]).map(c=>`<option>${esc(c)}</option>`).join("");if([...sel.options].some(o=>o.value===prev))sel.value=prev;renderVaultCards()}
+function renderVaultCards(){const cls=document.getElementById("vaultClass").value,exam=document.getElementById("vaultExam").value,sub=document.getElementById("vaultSubject").value,chapter=document.getElementById("vaultChapter").value,search=(document.getElementById("vaultSearch").value||"").toLowerCase();const items=formulaData[chapter]||[];let html=items.filter(x=>(x[0]+" "+x[1]+" "+chapter).toLowerCase().includes(search)).map((x,i)=>{const id=`${cls}|${exam}|${sub}|${chapter}|${x[0]}
+`,master=state.mastered.includes(id),rev=state.revision.includes(id);return `<div class="card"><div class="row"><span class="badge">${emoji[sub]} ${esc(sub)}</span><span class="badge">${master?"✓ Mastered":rev?"🔄 Revise":"Flashcard"}</span></div><h3 style="margin:12px 0 8px">${esc(x[0])}</h3><div class="formula">${esc(x[1])}</div><div class="row wrap" style="margin-top:12px"><button class="btn secondary small" onclick="markFormula('${encodeURIComponent(id)}','revision')">Need revision 🔄</button><button class="btn small" onclick="markFormula('${encodeURIComponent(id)}','mastered')">Mastered ✓</button></div></div>`}).join("");if(!items.length)html=`<div class="card"><h3>${esc(chapter)}</h3><p class="muted tiny">Is chapter ke liye formula notes abhi add nahi kiye gaye hain. Neeche apna personal formula/note save kar sakte ho.</p><textarea id="customFormula" rows="3" placeholder="Formula / definition / short note..."></textarea><button class="btn" style="margin-top:8px" onclick="saveCustomFormula()">Save personal note</button><div id="customNote" class="feedback hidden"></div></div>`;document.getElementById("vaultCards").innerHTML=html||'<div class="empty">Search se matching formula nahi mila.</div>'}
+function markFormula(enc,kind){const id=decodeURIComponent(enc);state.mastered=state.mastered.filter(x=>x!==id);state.revision=state.revision.filter(x=>x!==id);state[kind].push(id);saveState();renderVaultCards()}
+function saveCustomFormula(){const v=document.getElementById("customFormula").value.trim();if(!v)return alert("Pehle note likho.");const cls=document.getElementById("vaultClass").value,exam=document.getElementById("vaultExam").value,sub=document.getElementById("vaultSubject").value,ch=document.getElementById("vaultChapter").value;state.notes=state.notes||{};state.notes[`${cls}|${exam}|${sub}|${ch}`]=v;saveState();document.getElementById("customNote").textContent="Personal note saved on this device.";document.getElementById("customNote").classList.remove("hidden")}
+function solveDoubt(){const q=document.getElementById("doubtInput").value.trim(),sub=document.getElementById("doubtSubject").value,level=document.getElementById("doubtLevel").value,out=document.getElementById("doubtOutput");if(!q){alert("Pehle apna question type karo.");return}let answer="";const lower=q.toLowerCase();if(/escape velocity/.test(lower)){answer="Escape velocity ke liye vₑ = √(2GM/R) = √(2gR). Yahan G universal gravitational constant, M planet ka mass, R planet ka radius aur g surface gravity hai. Numerical solve karne ke liye given values SI units mein rakho."}else if(/orbital velocity/.test(lower)){answer="Circular orbit ke liye v = √(GM/r), jahan r planet ke centre se orbital radius hai. Near-surface orbit mein r ≈ R, isliye v ≈ √(gR)."}else if(/newton|force|acceleration/.test(lower)){answer="Newton's second law: F_net = ma. Sabhi forces ka vector sum nikalo, phir net force ko mass se divide karke acceleration pao. Units: F in N, m in kg, a in m/s²."}else if(/derivative|differentiat/.test(lower)){answer="Derivative rate of change batata hai. Power rule: d(xⁿ)/dx = n·xⁿ⁻¹. Example: d(x³)/dx = 3x². Expression ko term-by-term differentiate karo."}else if(/mole|molarity/.test(lower)){answer="Moles n = mass / molar mass. Molarity M = moles of solute / solution volume in litres. Units aur volume conversion carefully check karo."}else if(/p.?h|hydrogen ion/.test(lower)){answer="pH = −log₁₀[H⁺], jab [H⁺] mol L⁻¹ mein ho. [H⁺] = 10⁻³ M ho to pH = 3."}else if(/photosynthesis/.test(lower)){answer="Photosynthesis mein light energy chemical energy mein convert hoti hai. Simplified equation: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂, light aur chlorophyll ki presence mein."}else if(/probability/.test(lower)){answer="Equally likely outcomes ke liye P(A) = favourable outcomes / total outcomes. Hamesha 0 ≤ P(A) ≤ 1 aur P(A′) = 1 − P(A)."}else{answer=`Subject: ${sub} · ${level}\n\nOffline helper ko is exact question ka verified solution nahi mila. Isse solve karne ka safe tareeka:\n1. Given values aur kya find karna hai alag likho.\n2. Chapter ki relevant definition/formula identify karo.\n3. Units convert karke values substitute karo.\n4. Calculation ke baad unit aur answer verify karo.\n\nFull AI explanation ke liye server-side AI API connect karna hoga; browser-only HTML apne aap online AI nahi chala sakta.`}out.textContent=answer;out.classList.remove("hidden")}
+function renderProgress(){document.getElementById("pTests").textContent=state.history.length;document.getElementById("pAvg").textContent=(state.history.length?Math.round(state.history.reduce((a,x)=>a+x.pct,0)/state.history.length):0)+"%";document.getElementById("pRev").textContent=state.revision.length;document.getElementById("historyList").innerHTML=state.history.length?state.history.slice(0,12).map(x=>`<div class="listline"><b>${esc(x.chapter)}</b><div class="row"><span>${esc(x.exam)} · Class ${x.cls} · ${esc(x.date)}</span><b>${x.score}/${x.max} (${x.pct}%)</b></div></div>`).join(""):"Abhi koi test nahi diya.";document.getElementById("revisionList").innerHTML=state.revision.length?state.revision.map(x=>`<div class="listline">${esc(x.split("|").slice(3).join(" · "))}</div>`).join(""):"Koi formula revision ke liye mark nahi hua."}
+function updateStats(){const n=state.history.length,avg=n?Math.round(state.history.reduce((a,x)=>a+x.pct,0)/n):0,total=Object.values(chapters).reduce((a,byClass)=>a+Object.values(byClass).reduce((b,byExam)=>b+Object.values(byExam).reduce((c,arr)=>c+arr.length,0),0),0);document.getElementById("statTests").textContent=n;document.getElementById("statBest").textContent=(state.best||0)+"%";document.getElementById("statMastered").textContent=state.mastered.length;const p=Math.min(100,Math.round(state.completed.length/total*100));document.getElementById("progressLabel").textContent=p+"%";document.getElementById("progressBar").style.width=p+"%";document.getElementById("streakBadge").textContent="🔥 "+(state.streak||1)+" Day Streak"}
+function exportData(){const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="nexus-aspirant-backup.json";a.click();URL.revokeObjectURL(a.href)}
+function importData(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d||!Array.isArray(d.history))throw Error("invalid");state={...state,...d};saveState();renderProgress();alert("Backup imported successfully.")}catch(err){alert("Invalid backup file.")}};r.readAsText(f)}
+function resetData(){if(confirm("Saara saved progress delete karna hai? Yeh undo nahi hoga.")){localStorage.removeItem("nexusV10State");state=loadState();updateStats();renderProgress();alert("Progress reset ho gaya.")}}
+
+// V11: Cosmic animation layer and PYQ concept bank
+const pyqBank=[
+{exam:'JEE',subject:'Physics',topic:'Kinematics',q:'A particle starts from rest and moves with constant acceleration 2 m/s². Its displacement after 3 s is:',o:['6 m','9 m','12 m','18 m'],a:1,e:'Use s = ut + ½at². With u = 0, s = ½ × 2 × 3² = 9 m.'},
+{exam:'JEE',subject:'Physics',topic:'Work, Energy & Power',q:'A constant force acts perpendicular to the displacement of a particle. The work done by this force is:',o:['Fs','Zero','−Fs','Cannot be determined'],a:1,e:'W = Fs cos θ. For θ = 90°, cos θ = 0, so work is zero.'},
+{exam:'JEE',subject:'Physics',topic:'Electrostatics',q:'If the distance between two point charges is doubled, the magnitude of their Coulomb force becomes:',o:['Twice','Four times','Half','One-fourth'],a:3,e:'Coulomb force varies as 1/r². Doubling r reduces the force to 1/4.'},
+{exam:'JEE',subject:'Physics',topic:'Current Electricity',q:'Two resistors of 2 Ω and 3 Ω are connected in series. Their equivalent resistance is:',o:['1.2 Ω','5 Ω','6 Ω','2.5 Ω'],a:1,e:'Series resistances add: R = 2 + 3 = 5 Ω.'},
+{exam:'JEE',subject:'Chemistry',topic:'Mole Concept',q:'The number of moles in 18 g of water (molar mass 18 g mol⁻¹) is:',o:['0.5 mol','1 mol','2 mol','18 mol'],a:1,e:'n = mass/molar mass = 18/18 = 1 mol.'},
+{exam:'JEE',subject:'Chemistry',topic:'Chemical Kinetics',q:'For a first-order reaction, the half-life is:',o:['Directly proportional to initial concentration','Inversely proportional to initial concentration','Independent of initial concentration','Always zero'],a:2,e:'For first-order kinetics, t½ = 0.693/k, independent of initial concentration.'},
+{exam:'JEE',subject:'Chemistry',topic:'Chemical Bonding',q:'The molecular geometry of CH₄ is:',o:['Linear','Trigonal planar','Tetrahedral','Square planar'],a:2,e:'Four bonding pairs around carbon arrange tetrahedrally to minimise repulsion.'},
+{exam:'JEE',subject:'Maths',topic:'Differentiation',q:'If f(x) = x³, then f′(2) equals:',o:['6','8','12','4'],a:2,e:'f′(x) = 3x², so f′(2) = 3 × 4 = 12.'},
+{exam:'JEE',subject:'Maths',topic:'Probability',q:'A fair coin is tossed twice. The probability of getting exactly one head is:',o:['1/4','1/2','3/4','1'],a:1,e:'Outcomes are HH, HT, TH, TT. Exactly one head occurs in HT and TH: 2/4 = 1/2.'},
+{exam:'JEE',subject:'Maths',topic:'Matrices',q:'A square matrix A is invertible if its determinant is:',o:['Always zero','Non-zero','Always one','Negative only'],a:1,e:'A square matrix has an inverse precisely when det(A) ≠ 0.'},
+{exam:'NEET',subject:'Physics',topic:'Modern Physics',q:'In the photoelectric effect, the maximum kinetic energy of emitted electrons depends primarily on the incident light’s:',o:['Intensity only','Frequency','Polarisation only','Beam width'],a:1,e:'For a given metal, Kmax = hν − φ; it depends on frequency above threshold.'},
+{exam:'NEET',subject:'Physics',topic:'Optics',q:'The SI unit of power of a lens is:',o:['Metre','Dioptre (m⁻¹)','Watt','Candela'],a:1,e:'Lens power P = 1/f when f is in metres; the unit is m⁻¹, called dioptre.'},
+{exam:'NEET',subject:'Chemistry',topic:'Equilibrium',q:'At 25°C, the pH of a neutral aqueous solution is approximately:',o:['0','5','7','14'],a:2,e:'At 25°C, neutral water has [H⁺] = 10⁻⁷ mol L⁻¹, so pH = 7.'},
+{exam:'NEET',subject:'Chemistry',topic:'Biomolecules',q:'The monomers that make up proteins are:',o:['Fatty acids','Monosaccharides','Amino acids','Nucleotides'],a:2,e:'Proteins are polymers of amino acids linked by peptide bonds.'},
+{exam:'NEET',subject:'Biology',topic:'Cell Biology',q:'Which organelle is the principal site of aerobic ATP production in eukaryotic cells?',o:['Golgi apparatus','Mitochondrion','Lysosome','Ribosome'],a:1,e:'Mitochondria host the Krebs cycle and oxidative phosphorylation.'},
+{exam:'NEET',subject:'Biology',topic:'Genetics',q:'In a monohybrid cross with complete dominance, the usual F₂ phenotypic ratio is:',o:['1:1','1:2:1','3:1','9:3:3:1'],a:2,e:'A heterozygote × heterozygote cross gives 3 dominant phenotype : 1 recessive phenotype.'},
+{exam:'NEET',subject:'Biology',topic:'Human Physiology',q:'Most oxygen in human blood is transported:',o:['Dissolved in plasma','Bound to haemoglobin','As bicarbonate ions','By platelets'],a:1,e:'Most oxygen binds reversibly to haemoglobin in red blood cells.'},
+{exam:'NEET',subject:'Biology',topic:'Ecology',q:'The approximate fraction of energy commonly described as transferred from one trophic level to the next is:',o:['1%','10%','50%','90%'],a:1,e:'The ecological 10% rule is an approximation; actual efficiencies vary by ecosystem.'}
+];
+let pyqAnswered={},labRunning=true,labFrame=0,labRAF=0,starRAF=0,labSpeed=1,labScrubbing=false,labWasRunning=false;
+const LAB_MAX_FRAME=1200;
+function renderPYQ(){const ex=document.getElementById('pyqExam')?.value||'JEE',sub=document.getElementById('pyqSubject')?.value||'All subjects',q=(document.getElementById('pyqSearch')?.value||'').toLowerCase();const list=pyqBank.filter(x=>x.exam===ex&&(sub==='All subjects'||x.subject===sub)&&(`${x.topic} ${x.q} ${x.subject}`).toLowerCase().includes(q));const out=document.getElementById('pyqList');if(!out)return;document.getElementById('pyqCount').textContent=`${list.length} practice questions`;out.innerHTML=list.map((x,i)=>{const id=pyqBank.indexOf(x),chosen=pyqAnswered[id];return `<article class="pyq-card"><div class="row wrap"><span class="badge">${x.exam} · ${x.subject}</span><span class="badge">${esc(x.topic)}</span></div><p class="question"><b>Q${i+1}.</b> ${esc(x.q)}</p>${x.o.map((op,j)=>`<button class="pyq-option ${chosen!==undefined?(j===x.a?'right':j===chosen?'nope':''):''}" ${chosen!==undefined?'disabled':''} onclick="answerPYQ(${id},${j})">${String.fromCharCode(65+j)}. ${esc(op)}</button>`).join('')}${chosen!==undefined?`<div class="feedback"><b>${chosen===x.a?'Correct! ✓':'Answer: '+String.fromCharCode(65+x.a)}</b><p style="margin:5px 0 0">${esc(x.e)}</p></div>`:`<p class="tiny muted">Choose an option to reveal explanation.</p>`}</article>`}).join('')||'<div class="empty">Is filter se question nahi mila. Subject ya search badal kar dekho.</div>'}
+function answerPYQ(id,ans){if(pyqAnswered[id]!==undefined)return;pyqAnswered[id]=ans;renderPYQ()}
+function resetPYQ(){document.getElementById('pyqSearch').value='';document.getElementById('pyqSubject').value='All subjects';pyqAnswered={};renderPYQ()}
+function initStars(){const c=document.getElementById('starfield');if(!c)return;const ctx=c.getContext('2d');let stars=[];function resize(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);stars=Array.from({length:Math.min(130,Math.floor(innerWidth/7))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.4+.2,v:Math.random()*.28+.04,a:Math.random()*.65+.2}))}function frame(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const st of stars){st.y+=st.v;if(st.y>innerHeight){st.y=0;st.x=Math.random()*innerWidth}ctx.globalAlpha=st.a*(.7+.3*Math.sin(Date.now()/900+st.x));ctx.fillStyle='#a8f5ff';ctx.beginPath();ctx.arc(st.x,st.y,st.r,0,Math.PI*2);ctx.fill()}ctx.globalAlpha=1;starRAF=requestAnimationFrame(frame)}
+AddEventListener('resize',resize);resize();frame()}
+function drawLab(){const c=document.getElementById('scienceCanvas');if(!c)return;const ctx=c.getContext('2d'),w=c.width,h=c.height,mode=document.getElementById('labMode').value;ctx.clearRect(0,0,w,h);ctx.fillStyle='#dffaff';ctx.font='18px system-ui';ctx.textAlign='center';const cx=w/2,cy=h/2;const t=labFrame*.025;const captions={orbit:'Gravity provides the centripetal acceleration needed for orbital motion.',atom:'Bohr-style visual: electron paths represent quantised energy levels, not literal planetary tracks.',wave:'Wave speed v = fλ; changing frequency changes wavelength when the medium is fixed.',projectile:'Ignoring air resistance, horizontal velocity is constant while vertical acceleration is −g.',field:'Electric field points from positive charge toward negative charge.',circuit:'Conventional current is defined in the direction positive charge would move.',cell:'Cell structures are simplified and not to scale.',solar:'Planet sizes and distances are not to scale.'};document.getElementById('labCaption').textContent=captions[mode];
+function dot(x,y,r,col){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill()}function line(x1,y1,x2,y2,col='#7adfff',lw=2){ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke()}
+if(mode==='orbit'||mode==='solar'){dot(cx,cy,mode==='solar'?19:23,'#ffd166');for(let k=1;k<=(mode==='solar'?4:1);k++){const r=(mode==='solar'?34+k*29:95);ctx.strokeStyle='#6fb7d555';ctx.beginPath();ctx.ellipse(cx,cy,r,r*.52,0,0,Math.PI*2);ctx.stroke();const a=t*(mode==='solar'?.45/k:1);dot(cx+Math.cos(a)*r,cy+Math.sin(a)*r*.52,mode==='solar'?4+k%2:8,k%2?'#43e7f5':'#48efb0')}ctx.fillText(mode==='solar'?'Sun and orbit paths':'Planetary orbit',cx,32)}
+else if(mode==='atom'){dot(cx,cy,13,'#ff7aa8');for(let k=0;k<3;k++){ctx.save();ctx.translate(cx,cy);ctx.rotate(k*Math.PI/3);ctx.strokeStyle='#65dfffaa';ctx.beginPath();ctx.ellipse(0,0,115,40,0,0,Math.PI*2);ctx.stroke();ctx.restore();const a=t*(k%2?-.9:1)+k*2;dot(cx+Math.cos(a)*115,cy+Math.sin(a)*40,6,'#48efb0')}ctx.fillText('Quantised energy levels (schematic)',cx,32)}
+else if(mode==='wave'){ctx.strokeStyle='#43e7f5';ctx.lineWidth=3;ctx.beginPath();for(let x=20;x<w-20;x++){const y=cy+55*Math.sin((x/55)-t*2);x===20?ctx.moveTo(x,y):ctx.lineTo(x,y)}ctx.stroke();line(80,cy-65,190,cy-65,'#ffd166',2);ctx.fillText('Wavelength λ',135,cy-78);ctx.fillText('Amplitude',cx,32)}
+else if(mode==='projectile'){line(30,h-35,w-25,h-35,'#5e8e9e');ctx.strokeStyle='#48efb0';ctx.lineWidth=3;ctx.beginPath();for(let x=0;x<=w-100;x+=2){const xx=40+x,yy=h-35-(.72*x-.0025*x*x);if(x===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy)}ctx.stroke();const x=(labFrame*2)%(w-115),y=h-35-(.72*x-.0025*x*x);dot(40+x,y,8,'#ffd166');ctx.fillText('Projectile path (no air resistance)',cx,30)}
+else if(mode==='field'){const left=cx-85,right=cx+85;dot(left,cy,14,'#ff7787');dot(right,cy,14,'#43e7f5');ctx.fillStyle='#fff';ctx.fillText('+',left,cy+6);ctx.fillText('−',right,cy+6);for(let k=-3;k<=3;k++){ctx.beginPath();ctx.strokeStyle='#73d7ff88';ctx.lineWidth=1.7;ctx.moveTo(left,cy+k*13);ctx.bezierCurveTo(cx-20,cy+k*65,cx+20,cy+k*65,right,cy+k*13);ctx.stroke();const ax=right-12,ay=cy+k*13;line(ax,ay-4,ax+8,ay,'#73d7ff');line(ax,ay+4,ax+8,ay,'#73d7ff')}ctx.fillText('Electric dipole field (schematic)',cx,30)}
+else if(mode==='circuit'){line(cx-180,cy-65,cx+180,cy-65);line(cx-180,cy-65,cx-180,cy+65);line(cx+180,cy-65,cx+180,cy+65);line(cx-180,cy+65,cx+180,cy+65);ctx.fillStyle='#123b48';ctx.fillRect(cx-25,cy-84,50,38);ctx.strokeStyle='#43e7f5';ctx.strokeRect(cx-25,cy-84,50,38);ctx.fillText('R',cx,cy-59);line(cx-7,cy+48,cx-7,cy+82,'#ffd166',4);line(cx+7,cy+38,cx+7,cy+92,'#ffd166',2);for(let i=0;i<5;i++){const x=cx-150+((labFrame*2+i*65)%300);dot(x,cy+65,4,'#48efb0')}ctx.fillText('Simple circuit — schematic',cx,30)}
+else if(mode==='cell'){ctx.strokeStyle='#48efb0';ctx.lineWidth=5;ctx.beginPath();ctx.ellipse(cx,cy,190,112,0,0,Math.PI*2);ctx.stroke();dot(cx-35,cy-5,31,'#8b72c9');dot(cx-35,cy-5,17,'#d8c6ff');for(let i=0;i<6;i++){const a=t*(i%2?1:-1)+i;dot(cx+Math.cos(a)*105,cy+Math.sin(a)*57,7,i%2?'#ffd166':'#43e7f5')}ctx.fillText('Eukaryotic cell (simplified)',cx,30)}
+}
+function updateLabTimeline(){const slider=document.getElementById('labTimeline'),readout=document.getElementById('labTimeReadout');if(slider)slider.value=String(Math.max(0,Math.min(LAB_MAX_FRAME,labFrame)));if(readout)readout.textContent=`Frame ${Math.round(labFrame)} / ${LAB_MAX_FRAME}`}
+function scrubLab(value){labFrame=Math.max(0,Math.min(LAB_MAX_FRAME,Number(value)||0));drawLab();updateLabTimeline()}
+function stepLab(amount){labRunning=false;labFrame=Math.max(0,Math.min(LAB_MAX_FRAME,labFrame+amount));drawLab();updateLabTimeline();updateLabToggle()}
+function resetLabTimeline(){labFrame=0;labRunning=false;drawLab();updateLabTimeline();updateLabToggle()}
+function refreshLabScene(){labFrame=0;drawLab();updateLabTimeline()}
+function setLabSpeed(value){labSpeed=Math.max(.1,Math.min(3,Number(value)||1))}
+function updateLabToggle(){const b=document.getElementById('labToggle');if(b)b.textContent=labRunning?'⏸ Pause animation':'▶ Resume animation'}
+function toggleLab(){labRunning=!labRunning;updateLabToggle()}
+function labLoop(){if(labRunning&&!labScrubbing){labFrame+=labSpeed;if(labFrame>LAB_MAX_FRAME)labFrame=0;drawLab();updateLabTimeline()}labRAF=requestAnimationFrame(labLoop)}
+function initLabScrubbing(){const c=document.getElementById('scienceCanvas');if(!c||c.dataset.scrubReady)return;c.dataset.scrubReady='1';const frameFromPointer=e=>{const r=c.getBoundingClientRect();const ratio=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));labFrame=Math.round(ratio*LAB_MAX_FRAME);drawLab();updateLabTimeline()};c.addEventListener('pointerdown',e=>{labScrubbing=true;labWasRunning=labRunning;labRunning=false;try{c.setPointerCapture(e.pointerId)}catch(_){}frameFromPointer(e)});c.addEventListener('pointermove',e=>{if(labScrubbing)frameFromPointer(e)});const end=()=>{if(!labScrubbing)return;labScrubbing=false;labRunning=labWasRunning;updateLabToggle()};c.addEventListener('pointerup',end);c.addEventListener('pointercancel',end);c.addEventListener('lostpointercapture',end);const slider=document.getElementById('labTimeline');if(slider){slider.addEventListener('pointerdown',()=>{labWasRunning=labRunning;labRunning=false});slider.addEventListener('pointerup',()=>{labRunning=labWasRunning;updateLabToggle()});slider.addEventListener('change',()=>updateLabToggle())}}
+const oldSwitchTab=switchTab;switchTab=function(tab){oldSwitchTab(tab);if(tab==='pyq')renderPYQ();if(tab==='study'){updateStudySelectors()}if(tab==='lab'&&!labRAF){drawLab();labLoop()}};
+initLabScrubbing();updateLabTimeline();updateLabToggle();
+
+
+// V12 Smart Study Desk: local notes, chapter-specific formula lookup, NCERT links, and quick practice.
+const quickNotes={
+  'Physics':{
+    'Units and Measurements':['Check dimensions before substituting numbers; dimensional homogeneity is necessary but not sufficient for an equation.','Use significant figures consistently and distinguish accuracy from precision.'],
+    'Motion in a Straight Line':['Choose a positive direction first; displacement is signed while distance is path length.','For constant acceleration, use v=u+at, s=ut+½at² and v²=u²+2as.'],
+    'Motion in a Plane':['Resolve vectors into perpendicular components before adding them.','For projectile motion without air resistance, horizontal acceleration is zero and vertical acceleration is −g.'],
+    'Laws of Motion':['Draw a free-body diagram and include only forces acting on the chosen body.','Newton’s second law uses net external force: ΣF=ma; action–reaction forces act on different bodies.'],
+    'Work, Energy, and Power':['Work is scalar: W=Fs cosθ. Work by a conservative force depends only on endpoints.','Use energy conservation when non-conservative work is zero; power is the rate of energy transfer.'],
+    'Gravitation':['Gravitational force is attractive and follows an inverse-square law.','For circular orbit, v=√(GM/r); escape speed near a spherical body is √(2GM/R).'],
+    'Oscillations':['In SHM, acceleration is proportional to displacement and directed toward equilibrium: a=−ω²x.','For a small-angle simple pendulum, T=2π√(l/g); ideal period is independent of bob mass.'],
+    'Waves':['Wave speed is v=fλ; frequency is set by the source while speed depends on the medium.','Distinguish transverse and longitudinal waves; sound in air is longitudinal.'],
+    'Thermodynamics':['Track the sign convention for heat and work; write the first law before solving.','An ideal gas obeys PV=nRT; state changes depend on the process (isothermal, isobaric, isochoric, adiabatic).'],
+    'Current Electricity':['Use conventional current direction consistently; electrons drift opposite to conventional current in metals.','For series resistors, resistances add; for parallel resistors, reciprocals add.'],
+    'Ray Optics and Optical Instruments':['Draw a principal-ray diagram and use one sign convention throughout.','Lens power P=1/f when focal length is in metres; power unit is dioptre.'],
+    'Electric Charges and Fields':['Electric field direction is the force direction on a positive test charge.','Use superposition: calculate each field contribution as a vector, then add.']
+  },
+  'Chemistry':{
+    'Some Basic Concepts of Chemistry':['Balance equations before using stoichiometric ratios.','Moles n=m/M; use coefficients as mole ratios and check limiting reagent before yield.'],
+    'Structure of Atom':['Atomic number Z is proton count; mass number A is protons plus neutrons.','Photon energy E=hν=hc/λ; electron transitions involve discrete energy differences.'],
+    'Chemical Bonding and Molecular Structure':['Lewis structures help count valence electrons and formal charges.','Use VSEPR for approximate shape; molecular geometry and electron-pair geometry can differ.'],
+    'Chemical Equilibrium':['At equilibrium forward and reverse rates are equal; concentrations need not be equal.','Reaction quotient Q compared with K predicts direction of net change.'],
+    'Ionic Equilibrium':['pH=−log[H⁺] for molar concentration in the standard introductory treatment.','For weak acids/bases, state approximations and check whether they are valid.'],
+    'Chemical Thermodynamics':['Track system and surroundings carefully; ΔG=ΔH−TΔS at constant temperature.','Spontaneity under specified conditions is associated with ΔG<0; it does not mean fast reaction.'],
+    'Solutions':['Molarity is moles per litre of solution; molality is moles per kilogram of solvent.','Raoult’s law applies to ideal solutions; colligative properties depend on number of solute particles.'],
+    'Electrochemistry':['Oxidation occurs at the anode and reduction at the cathode.','E°cell=E°cathode−E°anode; a positive E°cell indicates spontaneity under standard conditions.'],
+    'Chemical Kinetics':['Reaction rate depends on concentration and temperature according to the rate law.','For a first-order process, t½=0.693/k and is independent of initial concentration.'],
+    'Hydrocarbons':['Identify the carbon skeleton and functional/reactive site before choosing a reaction.','Distinguish addition, substitution, elimination and oxidation; reaction conditions matter.']
+  },
+  'Maths':{
+    'Trigonometric Functions':['Know radian-degree conversion and unit-circle signs in all four quadrants.','Use identities to simplify before solving; check domain restrictions after transformations.'],
+    'Complex Numbers and Quadratic Equations':['For z=a+ib, modulus is √(a²+b²); conjugate is a−ib.','For ax²+bx+c=0, discriminant D=b²−4ac controls the nature of roots.'],
+    'Sequences and Series':['Identify whether a sequence is AP or GP before applying a sum formula.','AP: aₙ=a+(n−1)d; GP: aₙ=arⁿ⁻¹. Check indexing carefully.'],
+    'Straight Lines':['Slope describes direction; vertical lines have undefined slope.','Choose point-slope, intercept or general form based on the given information.'],
+    'Limits and Derivatives':['A limit describes nearby behaviour; a function value at the point can differ from its limit.','Use derivative rules and chain rule; check differentiability conditions at piecewise joins.'],
+    'Integrals (Definite and Indefinite)':['Integration reverses differentiation up to a constant for indefinite integrals.','For definite integrals use F(b)−F(a); do not add +C to the final definite value.'],
+    'Probability':['For equally likely outcomes P(A)=favourable/total; always 0≤P(A)≤1.','Use complement, addition and conditional probability rules only after defining events clearly.'],
+    'Matrices':['Matrix multiplication order matters in general: AB may not equal BA.','A square matrix is invertible only when its determinant is non-zero.'],
+    'Determinants':['For a 2×2 determinant, |a b; c d|=ad−bc.','Use row/column properties to simplify before expansion.']
+  },
+  'Biology':{
+    'The Living World':['Taxonomy uses identification, nomenclature and classification.','Scientific names follow binomial nomenclature: genus first, species second.'],
+    'Cell: The Unit of Life':['Plasma membrane is selectively permeable; prokaryotes lack a membrane-bound nucleus.','Mitochondria are associated with aerobic ATP production; ribosomes synthesize proteins.'],
+    'Biomolecules':['Proteins are built from amino acids; nucleic acids from nucleotides.','Enzymes lower activation energy and show specificity; activity depends on conditions.'],
+    'Cell Cycle and Cell Division':['Interphase includes G₁, S and G₂; DNA replication occurs during S phase.','Mitosis generally preserves chromosome number; meiosis reduces it and generates variation.'],
+    'Photosynthesis in Higher Plants':['Light reactions generate ATP and NADPH; the Calvin cycle fixes carbon dioxide.','Chlorophyll a is the primary photosynthetic pigment; oxygen released comes from water.'],
+    'Breathing and Exchange of Gases':['Gas exchange occurs by diffusion down partial-pressure gradients.','Most oxygen is carried bound to haemoglobin; much carbon dioxide is transported as bicarbonate.'],
+    'Principles of Inheritance and Variation':['Alleles segregate during gamete formation; distinguish genotype from phenotype.','For a standard monohybrid cross with complete dominance, F₂ phenotypic ratio is 3:1.'],
+    'Molecular Basis of Inheritance':['DNA strands are antiparallel; adenine pairs with thymine and guanine with cytosine.','Replication, transcription and translation are distinct processes with different products.'],
+    'Evolution':['Natural selection changes trait frequencies when heritable variation affects reproductive success.','Hardy–Weinberg relation p²+2pq+q²=1 applies under ideal assumptions.'],
+    'Ecosystem':['Energy flows through trophic levels while nutrients cycle.','The 10% rule is a useful approximation, not a universal exact percentage.'],
+    'Human Reproduction':['Know the sequence of gamete formation, fertilisation, implantation and development.','Use NCERT diagrams and definitions carefully; similar reproductive terms are easy to confuse.']
+  }
+}; Function updateStudySelectors(){const cls=document.getElementById('studyClass').value,exam=document.getElementById('studyExam').value,sel=document.getElementById('studySubject'),prev=sel.value,subs=Object.keys(getSubjects(cls,exam));sel.innerHTML=subs.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('');if(subs.includes(prev))sel.value=prev;updateStudyChapters()}
+function updateStudyChapters(){const cls=document.getElementById('studyClass').value,exam=document.getElementById('studyExam').value,sub=document.getElementById('studySubject').value,sel=document.getElementById('studyChapter'),prev=sel.value;const list=getSubjects(cls,exam)[sub]||[];sel.innerHTML=list.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');if(list.includes(prev))sel.value=prev;renderStudyDesk()}
+function currentStudyKey(){return `${document.getElementById('studyClass').value}|${document.getElementById('studyExam').value}|${document.getElementById('studySubject').value}|${document.getElementById('studyChapter').value}`}
+function showStudyPanel(which){['notes','formulas','practice','books'].forEach(x=>{document.getElementById('studyPanel'+x[0].toUpperCase()+x.slice(1)).classList.toggle('hidden',x!==which)});document.querySelectorAll('.study-tabs button').forEach((b,i)=>{b.classList.toggle('secondary',['notes','formulas','practice','books'][i]!==which)})}
+function getStudyQuestions(sub,chapter){const words=chapter.toLowerCase().split(/[^a-z0-9]+/).filter(w=>w.length>3);let list=pyqBank.filter(q=>q.subject===sub&&words.some(w=>(q.topic+' '+q.q).toLowerCase().includes(w)));if(!list.length)list=(qBank[sub]||qBank.Physics).slice(0,3).map(q=>({...q,topic:'Core subject practice'}));return list.slice(0,5)}
+function renderStudyDesk(){const cls=document.getElementById('studyClass').value,exam=document.getElementById('studyExam').value,sub=document.getElementById('studySubject').value,ch=document.getElementById('studyChapter').value;if(!ch)return;const key=currentStudyKey(),subjectNotes=quickNotes[sub]||{},custom=subjectNotes[ch]||[];const fallback=sub==='Physics'?['Identify the physical model and draw a labelled diagram before selecting equations.','Write the known quantities in SI units, select a relevant law, then check dimensions and limiting cases.']:sub==='Chemistry'?['Start with definitions and balanced equations; keep units, charge and stoichiometric coefficients consistent.','Identify the reaction type or governing principle, then check assumptions and conditions.']:sub==='Maths'?['Write the relevant definition or theorem and its conditions before applying it.','Show intermediate steps, preserve domain restrictions and verify the result with substitution when possible.']:['Learn NCERT definitions, labelled diagrams, locations and sequence of events.','Compare similar terms in a small table and revise NCERT examples, diagrams and key exceptions.'];const points=custom.length?custom:fallback;const done=(state.completed||[]).includes(key);document.getElementById('studyNotes').innerHTML=`<div class="row wrap"><span class="badge">Class ${cls} · ${esc(exam)} · ${esc(sub)}</span><span class="badge">${done?'✓ Studied':'Revision ready'}</span></div><div class="note-block"><h3>⚡ 60-second short notes: ${esc(ch)}</h3><ul>${points.map(p=>`<li>${esc(p)}</li>`).join('')}</ul><p class="small-note">These are quick revision pointers. For chapter-complete theory, examples and diagrams, use the official NCERT textbook links.</p></div><div class="note-block"><h3>🧩 Exam approach</h3><ul><li>Revise definitions, exceptions and units/conditions before attempting MCQs.</li><li>After every practice set, note why each wrong option is incorrect.</li><li>Return to this chapter after 1 day, 3 days and 7 days for spaced revision.</li></ul></div>`;const formulas=formulaData[ch]||[];document.getElementById('studyFormulas').innerHTML=`<h3>⚡ Formula / key-fact sheet</h3><p class="muted tiny">${esc(ch)} · ${formulas.length?'Chapter-matched entries':'No dedicated formula entry in the current vault yet'}</p>${formulas.length?formulas.map((f,i)=>`<div class="formula-row"><div class="formula"><b style="display:block;font-size:11px;color:#a8c0bb;margin-bottom:6px">${esc(f[0])}</b>${esc(f[1])}</div><button class="btn secondary small" onclick="copyText(decodeURIComponent('${encodeURIComponent(f[0]+': '+f[1])}'))">Copy</button></div>`).join(''):`<div class="feedback">${sub==='Biology'?'Biology revision is mainly concept-, diagram- and fact-based. Use the key facts in Short Notes and NCERT diagrams.':'Add this chapter’s important formula to your personal notes after checking it against NCERT/class notes.'}</div>`}<div class="note-block"><h3>Check before memorising</h3><ul><li>Know each symbol and its SI unit.</li><li>Check sign convention, assumptions and valid range.</li><li>For Biology, memorise definitions, sequences, diagrams and exceptions rather than forcing a formula sheet.</li></ul></div>`;const qs=getStudyQuestions(sub,ch);document.getElementById('studyPractice').innerHTML=`<h3>🎯 Quick practice</h3><p class="muted tiny">Questions below are labelled by their actual topic. If no chapter-matched item exists, a general subject drill is shown—never mislabelled as an official PYQ.</p>${qs.map((q,i)=>`<div class="note-block"><span class="badge">${esc(q.topic||'Practice')} · ${q.topic==='Core subject practice'?'General drill':'Topic match'}</span><p class="question"><b>Q${i+1}.</b> ${esc(q.q)}</p>${q.o.map((op,j)=>`<button class="pyq-option" onclick="checkStudyAnswer(this,${j},${q.a},decodeURIComponent('${encodeURIComponent(q.e)}'))">${String.fromCharCode(65+j)}. ${esc(op)}</button>`).join('')}<div class="feedback hidden"></div></div>`).join('')}`;const saved=(state.notes||{})[key]||'';document.getElementById('personalStudyNote').value=saved;document.getElementById('personalNoteStatus').textContent=saved?'Saved note loaded from this device':'';window.currentStudySummary=`${ch} — ${sub}
+${points.join('\n')}
+${formulas.map(f=>f[0]+': '+f[1]).join('\n')}`; }
+function checkStudyAnswer(btn,chosen,correct,explanation){const wrap=btn.parentElement;wrap.querySelectorAll('button').forEach((b,i)=>{b.disabled=true;if(i===correct)b.classList.add('right');if(i===chosen&&chosen!==correct)b.classList.add('nope')});const f=wrap.querySelector('.feedback');f.textContent=(chosen===correct?'Correct! ':'Correct answer: '+String.fromCharCode(65+correct)+'. ')+explanation;f.classList.remove('hidden')}
+function markStudyDone(){const key=currentStudyKey();if(!state.completed.includes(key))state.completed.push(key);saveState();renderStudyDesk();alert('Chapter revision marked complete on this device.')}
+function savePersonalStudyNote(){const key=currentStudyKey();state.notes=state.notes||{};state.notes[key]=document.getElementById('personalStudyNote').value;saveState();document.getElementById('personalNoteStatus').textContent='Saved on this device ✓'}
+function copyText(t){if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(()=>alert('Copied!')).catch(()=>fallbackCopy(t));else fallbackCopy(t)}
+function fallbackCopy(t){const el=document.createElement('textarea');el.value=t;document.body.appendChild(el);el.select();try{document.execCommand('copy');alert('Copied!')}catch(e){alert(t)}el.remove()}
+function copyStudySummary(){copyText(window.currentStudySummary||'Select a chapter first.')}
+
+
+// V14: Menu navigation and saved light/dark theme
+function toggleMenu(open){const shade=document.getElementById('menuShade');if(!shade)return;shade.classList.toggle('open',!!open);shade.setAttribute('aria-hidden',open?'false':'true');const trigger=document.querySelector('.menu-trigger');if(trigger)trigger.setAttribute('aria-expanded',open?'true':'false');document.body.style.overflow=open?'hidden':'';if(open){const close=shade.querySelector('button');if(close)close.focus()}}
+function menuGo(tab){toggleMenu(false);switchTab(tab)}
+function applyTheme(theme){const chosen=theme==='light'?'light':'dark';document.body.dataset.theme=chosen;const meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.content=chosen==='light'?'#f1f6fb':'#01140f';const label=document.getElementById('themeLabel'),hint=document.getElementById('themeHint'),btn=document.getElementById('themeToggle');if(label)label.textContent=chosen==='dark'?'🌙 Dark mode':'☀️ Light mode';if(hint)hint.textContent=chosen==='dark'?'Easy on the eyes at night':'Bright and clear for daytime study';if(btn)btn.textContent=chosen==='dark'?'Switch to Light ☀️':'Switch to Dark 🌙';try{localStorage.setItem('nexusTheme',chosen)}catch(e){}}
+function toggleTheme(){applyTheme(document.body.dataset.theme==='dark'?'light':'dark')}
+try{applyTheme(localStorage.getItem('nexusTheme')||'dark')}catch(e){applyTheme('dark')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')toggleMenu(false)});
+
+
+// V15: expanded, chapter-neutral verified practice items and interactive study tools.
+qBank.Physics.push(
+{q:"A wave has frequency 50 Hz and wavelength 4 m. Its speed is:",o:["12.5 m/s","46 m/s","200 m/s","400 m/s"],a:2,e:"Wave speed v = fλ = 50 × 4 = 200 m/s."},
+{q:"A 2 kg object accelerates at 3 m/s². Net force is:",o:["1.5 N","5 N","6 N","9 N"],a:2,e:"Newton's second law: F = ma = 2 × 3 = 6 N."},
+{q:"The SI unit of power is:",o:["Joule","Watt","Newton","Coulomb"],a:1,e:"Power is work done per unit time; its SI unit is watt."},
+{q:"If the speed of a body doubles, its kinetic energy becomes:",o:["Two times","Four times","Half","Unchanged"],a:1,e:"K = ½mv², so doubling speed multiplies kinetic energy by 4."},
+{q:"The SI unit of electric charge is:",o:["Ampere","Volt","Coulomb","Ohm"],a:2,e:"Electric charge is measured in coulombs (C)."},
+{q:"Two resistors 2 Ω and 3 Ω are connected in series. Equivalent resistance is:",o:["1.2 Ω","5 Ω","6 Ω","2.5 Ω"],a:1,e:"Series resistances add: R = 2 + 3 = 5 Ω."},
+{q:"At the highest point of vertical upward motion, the velocity is momentarily:",o:["Maximum","Zero","Equal to g","Infinite"],a:1,e:"At the top, instantaneous velocity is zero; acceleration due to gravity remains downward."},
+{q:"The SI unit of frequency is:",o:["Metre","Second","Hertz","Decibel"],a:2,e:"Frequency is measured in hertz (Hz), or s⁻¹."},
+{q:"For a simple pendulum at small oscillations, the time period depends mainly on:",o:["Mass of bob","Length and g","Colour of bob","Amplitude only"],a:1,e:"T = 2π√(l/g), for small oscillations."},
+{q:"A convex lens has focal length 0.5 m. Its power is:",o:["+0.5 D","+2 D","−2 D","+5 D"],a:1,e:"Lens power P = 1/f (metres) = 1/0.5 = +2 dioptres."}
+);
+qBank.Maths.push(
+{q:"The derivative of sin x is:",o:["−sin x","cos x","−cos x","tan x"],a:1,e:"d(sin x)/dx = cos x, with x measured in radians."},
+{q:"If log₁₀(1000) = x, then x is:",o:["2","3","10","100"],a:1,e:"10³ = 1000, so log₁₀(1000) = 3."},
+{q:"The roots of x² − 5x + 6 = 0 are:",o:["1 and 6","−2 and −3","2 and 3","−1 and −6"],a:2,e:"Factor: (x − 2)(x − 3) = 0."},
+{q:"The slope of the line y = 4x − 7 is:",o:["−7","4","7","−4"],a:1,e:"In y = mx + c, slope is m = 4."},
+{q:"For an AP with first term 3 and common difference 2, the 5th term is:",o:["9","10","11","13"],a:2,e:"a₅ = a + 4d = 3 + 8 = 11."},
+{q:"The value of sin 30° is:",o:["0","1/2","√3/2","1"],a:1,e:"Standard trigonometric value: sin 30° = 1/2."},
+{q:"If a set has 3 elements, its power set has how many subsets?",o:["3","6","8","9"],a:2,e:"A set with n elements has 2ⁿ subsets; 2³ = 8."},
+{q:"The determinant of [[1,2],[3,4]] is:",o:["−2","2","10","−10"],a:0,e:"Determinant = 1×4 − 2×3 = −2."},
+{q:"The integral of 2x with respect to x is:",o:["2 + C","x² + C","2x² + C","x + C"],a:1,e:"∫2x dx = x² + C."},
+{q:"If P(A)=0.35, then P(not A) is:",o:["0.35","0.65","1.35","0"],a:1,e:"Complement rule: P(A′)=1−P(A)=0.65."}
+);
+qBank.Chemistry.push(
+{q:"The atomic number of an element equals the number of:",o:["Neutrons only","Protons","Protons + neutrons","Shells"],a:1,e:"Atomic number is the number of protons in the nucleus."},
+{q:"A solution with pH 3 is how many times more acidic in [H⁺] than pH 5?",o:["2 times","10 times","100 times","1000 times"],a:2,e:"A two-unit pH difference means a 10² = 100-fold [H⁺] difference."},
+{q:"Which particle has a negative charge?",o:["Proton","Neutron","Electron","Alpha particle"],a:2,e:"Electrons carry negative elementary charge."},
+{q:"The oxidation number of oxygen in most compounds is:",o:["+2","−2","−1 always","0 always"],a:1,e:"Oxygen is usually −2, with known exceptions such as peroxides."},
+{q:"The SI unit of pressure is:",o:["Pascal","Joule","Mole","Kelvin"],a:0,e:"Pressure is force per unit area; SI unit is pascal (Pa)."},
+{q:"A catalyst changes the equilibrium constant at fixed temperature:",o:["Always increases it","Always decreases it","Does not change it","Makes it zero"],a:2,e:"A catalyst changes rates of forward and reverse reactions, not equilibrium constant."},
+{q:"The bond in NaCl is predominantly:",o:["Covalent","Ionic","Metallic","Peptide"],a:1,e:"Electron transfer and electrostatic attraction give predominantly ionic bonding."},
+{q:"One mole of an ideal gas at fixed temperature and pressure occupies volume proportional to:",o:["Molar mass","Number of moles","Colour","Atomic number"],a:1,e:"Avogadro's law: V ∝ n at fixed temperature and pressure."},
+{q:"The pH formula for dilute aqueous solution is:",o:["log[H⁺]","−log₁₀[H⁺]","[OH⁻]/[H⁺]","14 × [H⁺]"],a:1,e:"pH = −log₁₀ of hydrogen-ion concentration in mol L⁻¹."},
+{q:"Which quantity is conserved in a balanced chemical equation?",o:["Number of molecules on each side always","Mass and atoms of each element","Volume always","Colour"],a:1,e:"A balanced equation conserves atoms of each element and hence mass."}
+);
+qBank.Biology.push(
+{q:"Which organelle is the main site of protein synthesis?",o:["Ribosome","Lysosome","Vacuole","Centrosome"],a:0,e:"Ribosomes translate mRNA to synthesise polypeptides."},
+{q:"The plant cell wall is primarily made of:",o:["Chitin","Cellulose","Glycogen","Peptidoglycan"],a:1,e:"Cellulose is the principal structural polysaccharide of plant cell walls."},
+{q:"Which molecule carries genetic information in most organisms?",o:["ATP","DNA","Cellulose","Triglyceride"],a:1,e:"DNA stores hereditary information in most organisms."},
+{q:"The process by which green plants make carbohydrates using light is:",o:["Respiration","Photosynthesis","Fermentation","Transpiration"],a:1,e:"Photosynthesis converts light energy into chemical energy in organic molecules."},
+{q:"In Mendelian genetics, a dominant allele is expressed in a heterozygote under:",o:["Complete dominance","No inheritance","Only mutation","Independent assortment alone"],a:0,e:"With complete dominance, the dominant phenotype appears in a heterozygote."},
+{q:"Which blood cells are primarily responsible for oxygen transport?",o:["Platelets","Red blood cells","Neurons","Osteocytes"],a:1,e:"Red blood cells contain haemoglobin that carries most blood oxygen."},
+{q:"The functional unit of the kidney is the:",o:["Neuron","Nephron","Alveolus","Villus"],a:1,e:"Nephrons filter blood and modify filtrate to form urine."},
+{q:"Which division usually produces haploid gametes in animals?",o:["Mitosis","Meiosis","Binary fission","Budding"],a:1,e:"Meiosis reduces chromosome number by half."},
+{q:"An ecosystem includes:",o:["Only animals","Only plants","Biotic community and abiotic environment","Only soil"],a:2,e:"An ecosystem includes organisms interacting with each other and their physical environment."},
+{q:"Which molecule is the immediate energy currency of the cell?",o:["DNA","ATP","Cellulose","Antibody"],a:1,e:"ATP transfers usable energy for many cellular processes."}
+);
+let FlashIndex=0,flashList=[],focusSeconds=1500,focusInterval=null,focusRunning=false,focusIsBreak=false;
+function switchTab(tab){document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id===tab));document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));if(tab==="library")renderLibrary();if(tab==="tests")setupTestSelectors();if(tab==="vault"){renderVaultSubjects();renderVaultCards()}if(tab==="progress")renderProgress();if(tab==="flashcards")setupFlashcards();if(tab==="focus")updateFocusClock();window.scrollTo({top:0,behavior:"smooth"})}
+function openDailyChallenge(){const all=Object.entries(qBank).flatMap(([subject,arr])=>arr.map(q=>({...q,subject})));const q=all[Math.floor(Math.random()*all.length)];const area=document.getElementById('testArea');switchTab('tests');area.innerHTML=`<div class="card pyq-card"><span class="badge">🎲 DAILY CHALLENGE · ${esc(q.subject)}</span><p class="question">${esc(q.q)}</p>${q.o.map((o,i)=>`<button class="pyq-option" onclick="dailyAnswer(this,${i},${q.a},decodeURIComponent('${encodeURIComponent(q.e)}'))">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join('')}<div class="feedback hidden"></div></div>`;area.scrollIntoView({behavior:'smooth'})}
+function dailyAnswer(btn,chosen,correct,explanation){const box=btn.parentElement;box.querySelectorAll('button').forEach((b,i)=>{b.disabled=true;if(i===correct)b.classList.add('right');if(i===chosen&&i!==correct)b.classList.add('nope')});const f=box.querySelector('.feedback');f.textContent=(chosen===correct?'Correct! ':'Not quite. ')+explanation;f.classList.remove('hidden')}
+function openUniversalSearch(){switchTab('search');document.getElementById('globalSearchInput').focus()}
+function runGlobalSearch(){const q=(document.getElementById('globalSearchInput').value||'').trim().toLowerCase(),out=document.getElementById('globalSearchResults');if(!q){out.innerHTML='<div class="empty">Type any topic to search.</div>';return}const results=[];Object.entries(chapters).forEach(([cls,exams])=>Object.entries(exams).forEach(([exam,subs])=>Object.entries(subs).forEach(([sub,arr])=>arr.forEach(ch=>{if(ch.toLowerCase().includes(q))results.push({title:ch,meta:`Class ${cls} · ${exam} · ${sub}`,action:`openLibrary('${cls}','${exam}')`})}))));Object.entries(formulaData).forEach(([ch,arr])=>arr.forEach(f=>{if((ch+' '+f[0]+' '+f[1]).toLowerCase().includes(q))results.push({title:f[0]+' — '+f[1],meta:'Formula · '+ch,action:`switchTab('vault')`})}));Object.entries(qBank).forEach(([sub,arr])=>arr.forEach(item=>{if((item.q+' '+item.e+' '+sub).toLowerCase().includes(q))results.push({title:item.q,meta:'Practice question · '+sub,action:`openDailyChallenge()`})}));out.innerHTML=results.length?results.slice(0,60).map(r=>`<button class="chapter" onclick="${r.action}"><span><b>${esc(r.title)}</b><small>${esc(r.meta)}</small></span><span class="arrow">›</span></button>`).join(''):'<div class="empty">No results found. Try a shorter keyword.</div>'}
+function setupFlashcards(){const s=document.getElementById('flashSubject').value,sel=document.getElementById('flashChapter'),old=sel.value;const all=Object.keys(formulaData).filter(ch=>{const sub=s==='Maths'?['Complex Numbers and Quadratic Equations','Trigonometric Functions','Sequences and Series','Straight Lines','Limits and Derivatives','Integrals (Definite and Indefinite)','Determinants','Probability'].includes(ch):s==='Physics'?['Units and Measurements','Motion in a Straight Line','Motion in a Plane','Laws of Motion','Work, Energy, and Power','Gravitation','Oscillations','Waves','Electric Charges and Fields','Current Electricity','Electromagnetic Induction','Alternating Current','Ray Optics and Optical Instruments','Atoms','Nuclei'].includes(ch):s==='Chemistry'?['Structure of Atom','Some Basic Concepts of Chemistry','Chemical Equilibrium','Ionic Equilibrium','Chemical Thermodynamics','Solutions','Electrochemistry','Chemical Kinetics','Chemical Bonding and Molecular Structure'].includes(ch):['Cell: The Unit of Life','Biomolecules','Photosynthesis in Higher Plants','Breathing and Exchange of Gases','Human Reproduction','Principles of Inheritance and Variation','Molecular Basis of Inheritance','Evolution','Ecosystem','Biotechnology: Principles and Processes'].includes(ch)});sel.innerHTML=all.map(ch=>`<option>${esc(ch)}</option>`).join('');if(all.includes(old))sel.value=old;flashIndex=0;renderFlashcard()}
+function renderFlashcard(){if(!document.getElementById('flashChapter'))return;const ch=document.getElementById('flashChapter').value;flashList=formulaData[ch]||[];flashIndex=Math.max(0,Math.min(flashIndex,flashList.length-1));const f=flashList[flashIndex];document.getElementById('flashCount').textContent=`CARD ${flashList.length?flashIndex+1:0} / ${flashList.length}`;document.getElementById('flashFront').textContent=f?f[0]:'No formula cards in this chapter yet';document.getElementById('flashBack').textContent=f?f[1]:'';document.getElementById('flashBack').classList.add('hidden');document.getElementById('flashStatus').textContent='Tap the card to reveal the answer.'}
+function flipFlashcard(){const el=document.getElementById('flashBack');if(el)el.classList.toggle('hidden')}
+function moveFlashcard(d){if(!flashList.length)return;flashIndex=(flashIndex+d+flashList.length)%flashList.length;renderFlashcard()}
+function markFlashcard(){const f=flashList[flashIndex];if(!f)return;const key=f[0]+'|'+f[1];state.revision=state.revision||[];if(!state.revision.includes(key))state.revision.push(key);saveState();document.getElementById('flashStatus').textContent='⭐ Saved to your revision list.'}
+function updateFocusClock(){const el=document.getElementById('focusClock');if(el)el.textContent=formatTime(focusSeconds)}
+function setFocusDuration(){if(focusRunning)return;focusSeconds=+document.getElementById('focusMinutes').value*60;focusIsBreak=false;updateFocusClock();document.getElementById('focusStatus').textContent='Ready for a focused study session.'}
+function toggleFocus(){if(focusRunning){clearInterval(focusInterval);focusRunning=false;document.getElementById('focusStart').textContent='▶ Resume';document.getElementById('focusStatus').textContent='Paused — pick up when ready.';return}focusRunning=true;document.getElementById('focusStart').textContent='⏸ Pause';document.getElementById('focusStatus').textContent=focusIsBreak?'Break time — relax your mind.':'Focus session in progress. Stay with one task.';focusInterval=setInterval(()=>{focusSeconds--;updateFocusClock();if(focusSeconds<=0){clearInterval(focusInterval);focusRunning=false;document.getElementById('focusStart').textContent='▶ Start';document.getElementById('focusStatus').textContent=focusIsBreak?'Break complete. Ready to study again?':'Focus session complete! Take a short break.';if(!focusIsBreak){state.focusSessions=(state.focusSessions||0)+1;saveState()}if('vibrate' in navigator)navigator.vibrate(120)}},1000)}
+function resetFocus(){clearInterval(focusInterval);focusRunning=false;focusIsBreak=false;focusSeconds=+document.getElementById('focusMinutes').value*60;document.getElementById('focusStart').textContent='▶ Start';document.getElementById('focusStatus').textContent='Timer reset. Ready when you are.';updateFocusClock()}
+function startFocusBreak(){clearInterval(focusInterval);focusRunning=false;focusIsBreak=true;focusSeconds=+document.getElementById('focusBreak').value*60;document.getElementById('focusStart').textContent='▶ Start break';document.getElementById('focusStatus').textContent='Break time. Stretch and rest your eyes.';updateFocusClock()}
+
+setupTestSelectors();renderLibrary();renderVaultSubjects();updateStats();initStars();renderPYQ();drawLab();updateStudySelectors();
+</script>
+</body>
+</html> 
+  
